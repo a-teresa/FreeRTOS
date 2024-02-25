@@ -1,6 +1,6 @@
 #include "main.h"
 #include "cmsis_os.h"
-
+#include "stdio.h"
 UART_HandleTypeDef huart2;
 
 
@@ -8,7 +8,9 @@ UART_HandleTypeDef huart2;
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
 static void MX_USART2_UART_Init(void);
-void StartDefaultTask(void *argument);
+
+int __io_putchar(int ch);
+
 
 
 int main(void)
@@ -23,16 +25,19 @@ int main(void)
   MX_GPIO_Init();
   MX_USART2_UART_Init();
 
-  osKernelInitialize();
 
-
-  defaultTaskHandle = osThreadNew(StartDefaultTask, NULL, &defaultTask_attributes);
 
   while (1)
   {
-
+	  printf("Hello from stm32 \n\r");
   }
 
+}
+
+int __io_putchar(int ch)
+{
+	HAL_UART_Transmit(&huart2,(uint8_t *)&ch,1,0xFFFF);
+	return ch;
 }
 
 /**
@@ -137,16 +142,7 @@ static void MX_GPIO_Init(void)
   * @retval None
   */
 /* USER CODE END Header_StartDefaultTask */
-void StartDefaultTask(void *argument)
-{
-  /* USER CODE BEGIN 5 */
-  /* Infinite loop */
-  for(;;)
-  {
-    osDelay(1);
-  }
-  /* USER CODE END 5 */
-}
+
 
 /**
   * @brief  Period elapsed callback in non blocking mode
