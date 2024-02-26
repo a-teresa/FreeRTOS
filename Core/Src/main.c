@@ -1,6 +1,8 @@
 #include "main.h"
 #include "cmsis_os.h"
 #include "stdio.h"
+#include "stm32f4xx.h"
+
 UART_HandleTypeDef huart2;
 
 
@@ -9,9 +11,16 @@ void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
 static void MX_USART2_UART_Init(void);
 
+
 int __io_putchar(int ch);
+void vBlueLedControllerTask(void *pvParameters);
+void vRedLedControllerTask(void *pvParameters);
+void vGreenLedControllerTask(void *pvParameters);
 
 
+typedef uint32_t TaskProfiler;
+
+TaskProfiler BlueTaskProfiler, RedTaskProfiler, GreenTaskProfiler;
 
 int main(void)
 {
@@ -25,15 +34,63 @@ int main(void)
   MX_GPIO_Init();
   MX_USART2_UART_Init();
 
+  xTaskCreate(vBlueLedControllerTask,
+				"Blue Led Controller",
+				100,
+				NULL,
+				1,
+				NULL);
 
+  xTaskCreate(vRedLedControllerTask,
+				"Red Led Controller",
+				100,
+				NULL,
+				1,
+				NULL);
+
+  xTaskCreate(vGreenLedControllerTask,
+				"Green Led Controller",
+				100,
+				NULL,
+				1,
+				NULL);
+
+ vTaskStartScheduler();
 
   while (1)
   {
-	  printf("Hello from stm32 \n\r");
+
   }
 
 }
 
+void vBlueLedControllerTask(void *pvParameters)
+{
+	while(1)
+	{
+		BlueTaskProfiler++;
+
+	}
+}
+
+void vRedLedControllerTask(void *pvParameters)
+{
+	while(1)
+	{
+		RedTaskProfiler++;
+
+	}
+}
+
+
+void vGreenLedControllerTask(void *pvParameters)
+{
+	while(1)
+	{
+		GreenTaskProfiler++;
+
+	}
+}
 int __io_putchar(int ch)
 {
 	HAL_UART_Transmit(&huart2,(uint8_t *)&ch,1,0xFFFF);
