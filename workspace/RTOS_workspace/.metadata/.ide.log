@@ -1,0 +1,65 @@
+2024-04-21 00:43:12,278 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 683552304 Bytes (1073741824)
+2024-04-21 00:43:15,879 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 710288944 Bytes (1073741824)
+2024-04-21 00:43:22,440 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 814624304 Bytes (1073741824)
+2024-04-21 00:43:22,713 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: NVIC
+2024-04-21 00:43:22,714 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: GPIO
+2024-04-21 00:43:22,714 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: RCC
+2024-04-21 00:43:22,715 [INFO] CodeGenerator:807 - code generatio: config db path: /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.common.mx_6.10.0.202311202037//db/
+2024-04-21 00:43:22,898 [INFO] CodeEngine:255 - oldGeneratedFile, /Users/anateresaneto/Desktop/app/FreeRTOS/workspace/RTOS_workspace/freeRTOSprojects/MXTmpFiles/license.tmp_save
+2024-04-21 00:43:23,126 [INFO] CodeEngine:279 - Generated code: /Users/anateresaneto/Desktop/app/FreeRTOS/workspace/RTOS_workspace/freeRTOSprojects/MXTmpFiles/license.tmp
+2024-04-21 00:43:23,191 [INFO] CodeEngine:255 - oldGeneratedFile, /Users/anateresaneto/Desktop/app/FreeRTOS/workspace/RTOS_workspace/freeRTOSprojects/MXTmpFiles/gpio.tmp_save
+2024-04-21 00:43:23,278 [INFO] CodeEngine:279 - Generated code: /Users/anateresaneto/Desktop/app/FreeRTOS/workspace/RTOS_workspace/freeRTOSprojects/MXTmpFiles/gpio.tmp
+2024-04-21 00:43:23,282 [INFO] CodeEngine:255 - oldGeneratedFile, /Users/anateresaneto/Desktop/app/FreeRTOS/workspace/RTOS_workspace/freeRTOSprojects/Core/Src/stm32l0xx_it.c_save
+2024-04-21 00:43:23,488 [INFO] CodeEngine:279 - Generated code: /Users/anateresaneto/Desktop/app/FreeRTOS/workspace/RTOS_workspace/freeRTOSprojects/Core/Src/stm32l0xx_it.c
+2024-04-21 00:43:23,491 [INFO] CodeEngine:255 - oldGeneratedFile, /Users/anateresaneto/Desktop/app/FreeRTOS/workspace/RTOS_workspace/freeRTOSprojects/Core/Inc/stm32l0xx_it.h_save
+2024-04-21 00:43:23,584 [INFO] CodeEngine:279 - Generated code: /Users/anateresaneto/Desktop/app/FreeRTOS/workspace/RTOS_workspace/freeRTOSprojects/Core/Inc/stm32l0xx_it.h
+2024-04-21 00:43:23,649 [INFO] CodeEngine:255 - oldGeneratedFile, /Users/anateresaneto/Desktop/app/FreeRTOS/workspace/RTOS_workspace/freeRTOSprojects/Core/Src/stm32l0xx_hal_msp.c_save
+2024-04-21 00:43:23,771 [INFO] CodeEngine:279 - Generated code: /Users/anateresaneto/Desktop/app/FreeRTOS/workspace/RTOS_workspace/freeRTOSprojects/Core/Src/stm32l0xx_hal_msp.c
+2024-04-21 00:43:23,774 [INFO] CodeEngine:255 - oldGeneratedFile, /Users/anateresaneto/Desktop/app/FreeRTOS/workspace/RTOS_workspace/freeRTOSprojects/MXTmpFiles/system.tmp_save
+2024-04-21 00:43:24,007 [INFO] CodeEngine:279 - Generated code: /Users/anateresaneto/Desktop/app/FreeRTOS/workspace/RTOS_workspace/freeRTOSprojects/MXTmpFiles/system.tmp
+2024-04-21 00:43:24,033 [INFO] CodeEngine:311 - oldGeneratedFile, /Users/anateresaneto/Desktop/app/FreeRTOS/workspace/RTOS_workspace/freeRTOSprojects/Core/Inc/stm32l0xx_hal_conf.h_save
+2024-04-21 00:43:24,095 [INFO] CodeEngine:335 - Generated code: /Users/anateresaneto/Desktop/app/FreeRTOS/workspace/RTOS_workspace/freeRTOSprojects/Core/Inc/stm32l0xx_hal_conf.h
+2024-04-21 00:43:24,174 [INFO] CodeEngine:255 - oldGeneratedFile, /Users/anateresaneto/Desktop/app/FreeRTOS/workspace/RTOS_workspace/freeRTOSprojects/Core/Inc/main.h_save
+2024-04-21 00:43:24,288 [INFO] CodeEngine:279 - Generated code: /Users/anateresaneto/Desktop/app/FreeRTOS/workspace/RTOS_workspace/freeRTOSprojects/Core/Inc/main.h
+2024-04-21 00:43:24,291 [INFO] CodeEngine:255 - oldGeneratedFile, /Users/anateresaneto/Desktop/app/FreeRTOS/workspace/RTOS_workspace/freeRTOSprojects/Core/Src/main.c_save
+2024-04-21 00:43:24,405 [INFO] CodeEngine:279 - Generated code: /Users/anateresaneto/Desktop/app/FreeRTOS/workspace/RTOS_workspace/freeRTOSprojects/Core/Src/main.c
+2024-04-21 00:43:24,863 [INFO] ProjectBuilder:3076 - Time for Copy HAL[1] : 59mS.
+2024-04-21 00:43:24,943 [INFO] ProjectBuilder:4485 - Project Generator version: 4.2.0-B44
+2024-04-21 00:43:25,330 [INFO] ConfigFileManager:1495 - The Die is : DIE417
+2024-04-21 00:43:27,570 [INFO] ProjectBuilder:4747 - Time for Generating toolchain IDE Files: 2627mS.
+2024-04-21 00:43:27,580 [INFO] ProjectBuilder:2947 - Time for Copy CMSIS : 0mS.
+2024-04-21 00:43:27,585 [INFO] ProjectBuilder:2947 - Time for Copy CMSIS : 0mS.
+2024-04-21 00:49:25,235 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 863212320 Bytes (1073741824)
+2024-04-21 00:49:27,510 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 886000512 Bytes (1073741824)
+2024-04-21 00:49:29,960 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 705468416 Bytes (1073741824)
+2024-04-21 00:49:30,241 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: NVIC
+2024-04-21 00:49:30,241 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: SYS
+2024-04-21 00:49:30,242 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: GPIO
+2024-04-21 00:49:30,242 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: RCC
+2024-04-21 00:49:30,242 [INFO] CodeGenerator:807 - code generatio: config db path: /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.common.mx_6.10.0.202311202037//db/
+2024-04-21 00:49:30,392 [INFO] CodeEngine:255 - oldGeneratedFile, /Users/anateresaneto/Desktop/app/FreeRTOS/workspace/RTOS_workspace/freeRTOSprojects/MXTmpFiles/license.tmp_save
+2024-04-21 00:49:30,627 [INFO] CodeEngine:279 - Generated code: /Users/anateresaneto/Desktop/app/FreeRTOS/workspace/RTOS_workspace/freeRTOSprojects/MXTmpFiles/license.tmp
+2024-04-21 00:49:30,739 [INFO] CodeEngine:255 - oldGeneratedFile, /Users/anateresaneto/Desktop/app/FreeRTOS/workspace/RTOS_workspace/freeRTOSprojects/MXTmpFiles/gpio.tmp_save
+2024-04-21 00:49:30,827 [INFO] CodeEngine:279 - Generated code: /Users/anateresaneto/Desktop/app/FreeRTOS/workspace/RTOS_workspace/freeRTOSprojects/MXTmpFiles/gpio.tmp
+2024-04-21 00:49:30,850 [INFO] CodeEngine:255 - oldGeneratedFile, /Users/anateresaneto/Desktop/app/FreeRTOS/workspace/RTOS_workspace/freeRTOSprojects/Core/Src/stm32l0xx_it.c_save
+2024-04-21 00:49:31,056 [INFO] CodeEngine:279 - Generated code: /Users/anateresaneto/Desktop/app/FreeRTOS/workspace/RTOS_workspace/freeRTOSprojects/Core/Src/stm32l0xx_it.c
+2024-04-21 00:49:31,058 [INFO] CodeEngine:255 - oldGeneratedFile, /Users/anateresaneto/Desktop/app/FreeRTOS/workspace/RTOS_workspace/freeRTOSprojects/Core/Inc/stm32l0xx_it.h_save
+2024-04-21 00:49:31,110 [INFO] CodeEngine:279 - Generated code: /Users/anateresaneto/Desktop/app/FreeRTOS/workspace/RTOS_workspace/freeRTOSprojects/Core/Inc/stm32l0xx_it.h
+2024-04-21 00:49:31,116 [INFO] CodeEngine:255 - oldGeneratedFile, /Users/anateresaneto/Desktop/app/FreeRTOS/workspace/RTOS_workspace/freeRTOSprojects/Core/Src/stm32l0xx_hal_msp.c_save
+2024-04-21 00:49:31,199 [INFO] CodeEngine:279 - Generated code: /Users/anateresaneto/Desktop/app/FreeRTOS/workspace/RTOS_workspace/freeRTOSprojects/Core/Src/stm32l0xx_hal_msp.c
+2024-04-21 00:49:31,201 [INFO] CodeEngine:255 - oldGeneratedFile, /Users/anateresaneto/Desktop/app/FreeRTOS/workspace/RTOS_workspace/freeRTOSprojects/MXTmpFiles/system.tmp_save
+2024-04-21 00:49:31,253 [INFO] CodeEngine:279 - Generated code: /Users/anateresaneto/Desktop/app/FreeRTOS/workspace/RTOS_workspace/freeRTOSprojects/MXTmpFiles/system.tmp
+2024-04-21 00:49:31,254 [INFO] CodeEngine:255 - oldGeneratedFile, /Users/anateresaneto/Desktop/app/FreeRTOS/workspace/RTOS_workspace/freeRTOSprojects/Core/Src/stm32l0xx_hal_timebase_tim.c_save
+2024-04-21 00:49:31,308 [INFO] CodeEngine:279 - Generated code: /Users/anateresaneto/Desktop/app/FreeRTOS/workspace/RTOS_workspace/freeRTOSprojects/Core/Src/stm32l0xx_hal_timebase_tim.c
+2024-04-21 00:49:31,315 [INFO] CodeEngine:311 - oldGeneratedFile, /Users/anateresaneto/Desktop/app/FreeRTOS/workspace/RTOS_workspace/freeRTOSprojects/Core/Inc/stm32l0xx_hal_conf.h_save
+2024-04-21 00:49:31,370 [INFO] CodeEngine:335 - Generated code: /Users/anateresaneto/Desktop/app/FreeRTOS/workspace/RTOS_workspace/freeRTOSprojects/Core/Inc/stm32l0xx_hal_conf.h
+2024-04-21 00:49:31,407 [INFO] CodeEngine:255 - oldGeneratedFile, /Users/anateresaneto/Desktop/app/FreeRTOS/workspace/RTOS_workspace/freeRTOSprojects/Core/Inc/main.h_save
+2024-04-21 00:49:31,488 [INFO] CodeEngine:279 - Generated code: /Users/anateresaneto/Desktop/app/FreeRTOS/workspace/RTOS_workspace/freeRTOSprojects/Core/Inc/main.h
+2024-04-21 00:49:31,491 [INFO] CodeEngine:255 - oldGeneratedFile, /Users/anateresaneto/Desktop/app/FreeRTOS/workspace/RTOS_workspace/freeRTOSprojects/Core/Src/main.c_save
+2024-04-21 00:49:31,612 [INFO] CodeEngine:279 - Generated code: /Users/anateresaneto/Desktop/app/FreeRTOS/workspace/RTOS_workspace/freeRTOSprojects/Core/Src/main.c
+2024-04-21 00:49:32,187 [INFO] ProjectBuilder:3076 - Time for Copy HAL[1] : 54mS.
+2024-04-21 00:49:32,195 [INFO] ProjectBuilder:4485 - Project Generator version: 4.2.0-B44
+2024-04-21 00:49:32,434 [INFO] ConfigFileManager:1495 - The Die is : DIE417
+2024-04-21 00:49:35,805 [INFO] ProjectBuilder:4747 - Time for Generating toolchain IDE Files: 3604mS.
+2024-04-21 00:49:35,814 [INFO] ProjectBuilder:2947 - Time for Copy CMSIS : 1mS.
+2024-04-21 00:49:35,817 [INFO] ProjectBuilder:2947 - Time for Copy CMSIS : 0mS.

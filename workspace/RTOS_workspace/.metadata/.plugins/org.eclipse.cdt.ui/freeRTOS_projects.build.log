@@ -1,0 +1,49 @@
+16:05:52 **** Build of configuration Debug for project freeRTOS_projects ****
+make -j7 all 
+arm-none-eabi-gcc "../ThirdParty/freeRTOS/portable/MemMang/heap_1.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L053xx -c -I../Core/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"ThirdParty/freeRTOS/portable/MemMang/heap_1.d" -MT"ThirdParty/freeRTOS/portable/MemMang/heap_1.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "ThirdParty/freeRTOS/portable/MemMang/heap_1.o"
+arm-none-eabi-gcc "../ThirdParty/freeRTOS/portable/MemMang/heap_2.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L053xx -c -I../Core/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"ThirdParty/freeRTOS/portable/MemMang/heap_2.d" -MT"ThirdParty/freeRTOS/portable/MemMang/heap_2.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "ThirdParty/freeRTOS/portable/MemMang/heap_2.o"
+arm-none-eabi-gcc "../ThirdParty/freeRTOS/portable/MemMang/heap_3.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L053xx -c -I../Core/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"ThirdParty/freeRTOS/portable/MemMang/heap_3.d" -MT"ThirdParty/freeRTOS/portable/MemMang/heap_3.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "ThirdParty/freeRTOS/portable/MemMang/heap_3.o"
+arm-none-eabi-gcc "../ThirdParty/freeRTOS/portable/MemMang/heap_4.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L053xx -c -I../Core/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"ThirdParty/freeRTOS/portable/MemMang/heap_4.d" -MT"ThirdParty/freeRTOS/portable/MemMang/heap_4.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "ThirdParty/freeRTOS/portable/MemMang/heap_4.o"
+arm-none-eabi-gcc "../ThirdParty/freeRTOS/portable/MemMang/heap_5.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L053xx -c -I../Core/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"ThirdParty/freeRTOS/portable/MemMang/heap_5.d" -MT"ThirdParty/freeRTOS/portable/MemMang/heap_5.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "ThirdParty/freeRTOS/portable/MemMang/heap_5.o"
+arm-none-eabi-gcc "../ThirdParty/freeRTOS/portable/GCC/ARM_CM0/port.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L053xx -c -I../Core/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"ThirdParty/freeRTOS/portable/GCC/ARM_CM0/port.d" -MT"ThirdParty/freeRTOS/portable/GCC/ARM_CM0/port.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "ThirdParty/freeRTOS/portable/GCC/ARM_CM0/port.o"
+arm-none-eabi-gcc "../ThirdParty/freeRTOS/croutine.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L053xx -c -I../Core/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"ThirdParty/freeRTOS/croutine.d" -MT"ThirdParty/freeRTOS/croutine.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "ThirdParty/freeRTOS/croutine.o"
+../ThirdParty/freeRTOS/croutine.c:29:10: fatal error: FreeRTOS.h: No such file or directory
+   29 | #include "FreeRTOS.h"
+      |          ^~~~~~~~~~~~
+compilation terminated.
+../ThirdParty/freeRTOS/portable/GCC/ARM_CM0/port.c:34:10: fatal error: FreeRTOS.h: No such file or directory
+   34 | #include "FreeRTOS.h"
+      |          ^~~~~~~~~~~~
+compilation terminated.
+make: *** [ThirdParty/freeRTOS/subdir.mk:37: ThirdParty/freeRTOS/croutine.o] Error 1
+make: *** Waiting for unfinished jobs....
+make: *** [ThirdParty/freeRTOS/portable/GCC/ARM_CM0/subdir.mk:19: ThirdParty/freeRTOS/portable/GCC/ARM_CM0/port.o] Error 1
+../ThirdParty/freeRTOS/portable/MemMang/heap_3.c:48:10: fatal error: FreeRTOS.h: No such file or directory
+   48 | #include "FreeRTOS.h"
+      |          ^~~~~~~~~~~~
+compilation terminated.
+../ThirdParty/freeRTOS/portable/MemMang/heap_1.c:44:10: fatal error: FreeRTOS.h: No such file or directory
+   44 | #include "FreeRTOS.h"
+      |          ^~~~~~~~~~~~
+compilation terminated.
+make: *** [ThirdParty/freeRTOS/portable/MemMang/subdir.mk:31: ThirdParty/freeRTOS/portable/MemMang/heap_3.o] Error 1
+make: *** [ThirdParty/freeRTOS/portable/MemMang/subdir.mk:31: ThirdParty/freeRTOS/portable/MemMang/heap_1.o] Error 1
+../ThirdParty/freeRTOS/portable/MemMang/heap_4.c:45:10: fatal error: FreeRTOS.h: No such file or directory
+   45 | #include "FreeRTOS.h"
+      |          ^~~~~~~~~~~~
+compilation terminated.
+../ThirdParty/freeRTOS/portable/MemMang/heap_2.c:46:10: fatal error: FreeRTOS.h: No such file or directory
+   46 | #include "FreeRTOS.h"
+      |          ^~~~~~~~~~~~
+compilation terminated.
+../ThirdParty/freeRTOS/portable/MemMang/heap_5.c:79:10: fatal error: FreeRTOS.h: No such file or directory
+   79 | #include "FreeRTOS.h"
+      |          ^~~~~~~~~~~~
+compilation terminated.
+make: *** [ThirdParty/freeRTOS/portable/MemMang/subdir.mk:31: ThirdParty/freeRTOS/portable/MemMang/heap_4.o] Error 1
+make: *** [ThirdParty/freeRTOS/portable/MemMang/subdir.mk:31: ThirdParty/freeRTOS/portable/MemMang/heap_2.o] Error 1
+make: *** [ThirdParty/freeRTOS/portable/MemMang/subdir.mk:31: ThirdParty/freeRTOS/portable/MemMang/heap_5.o] Error 1
+"make -j7 all" terminated with exit code 2. Build might be incomplete.
+
+16:05:53 Build Failed. 15 errors, 0 warnings. (took 380ms)
+
