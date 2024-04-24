@@ -24,7 +24,7 @@
 #include <semphr.h>
 #include <SEGGER_SYSVIEW.h>
 #include <stm32f7xx_hal.h>
-
+#include <lookBusy.h>
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 
@@ -33,8 +33,12 @@
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
 #define STACK_SIZE 128
-void GreenTaskA( void * argument);
-void BlueTaskB( void* argumet );
+
+static void blinkTwice( LED* led );
+
+void TaskA( void * argument);
+void TaskB( void* argumet );
+void TaskC( void* argumet );
 /* USER CODE END PTD */
 
 /* Private define ------------------------------------------------------------*/
@@ -44,7 +48,7 @@ void BlueTaskB( void* argumet );
 
 // Create storage for a pointer to a semaphore
 
-SemaphoreHandle_t semPtr = NULL;
+SemaphoreHandle_t mutexPtr = NULL;
 
 
 /* USER CODE END PD */
@@ -129,27 +133,25 @@ int main(void)
 		SEGGER_SYSVIEW_Conf();
 		HAL_NVIC_SetPriorityGrouping(NVIC_PRIORITYGROUP_4);	//ensure proper priority grouping for freeRTOS
 
-		// Create a semaphore using the FreeRTOS Heap
-		semPtr = xSemaphoreCreateBinary();
-	    // Ensure the pointer is valid (semaphore created successfully)
-		assert_param(semPtr != NULL);
+		// Get the iteration-rate for lookBusy()
+		    iterationsPerMilliSecond = lookBusyIterationRate();
 
-		// Create TaskA as a higher priority than TaskB.  In this example, this isn't strictly necessary since the tasks
-		// spend nearly all of their time blocked
-		status=xTaskCreate(GreenTaskA, "GreenTaskA", STACK_SIZE, NULL, tskIDLE_PRIORITY + 2, NULL);
-		assert_param(status == pdPASS);
+		    // Create a mutex .
+		    // Note this is just a special case of a binary semaphore.
+		    mutexPtr = xSemaphoreCreateMutex();
+		    assert_param(mutexPtr != NULL);
 
-		// Using an assert to ensure proper task creation
-		status=xTaskCreate(BlueTaskB, "BlueTaskB", STACK_SIZE, NULL, tskIDLE_PRIORITY + 1, NULL);
-		assert_param( status == pdPASS);
+		    assert_param(xTaskCreate(TaskA, "TaskA", STACK_SIZE, NULL, tskIDLE_PRIORITY + 3, NULL) == pdPASS);
+		    assert_param(xTaskCreate(TaskB, "TaskB", STACK_SIZE, NULL, tskIDLE_PRIORITY + 2, NULL) == pdPASS);
+		    assert_param(xTaskCreate(TaskC, "TaskC", STACK_SIZE, NULL, tskIDLE_PRIORITY + 1, NULL) == pdPASS);
 
-		// Start the scheduler - shouldn't return unless there's a problem
-		vTaskStartScheduler();
+		    // Start the scheduler - shouldn't return unless there's a problem
+		    vTaskStartScheduler();
 
-		// If you've wound up here, there is likely an issue with over-running the freeRTOS heap
-		while(1)
-		{
-		}
+		    // If you've wound up here, there is likely an issue with over-running the freeRTOS heap
+		    while(1)
+		    {
+		    }
 
 
 }
@@ -162,61 +164,116 @@ int main(void)
  * - Giving the semaphore doesn't prevent GreenTaskA from continuing to run.
  * - Note the green LED continues to blink at all times
  */
-void GreenTaskA( void* argument )
+/**
+ * Task A is the highest priority task in the system.
+ * It periodically takes the mutex with a 200ms timeout.
+ * If the mutex is taken within 200 ms, the red LED is turned off,
+   and blinkTwice() is called to blink the green LED.
+ * If the mutex is not taken within 200ms, the red LED is turned on
+   (after TaskA has been given context)
+ * At the end of each while-loop iteration, vTaskDelay is called.
+ */
+void TaskA( void* argument )
 {
-	uint_fast8_t count = 0;
-	while(1)
-	{
-		// Every 5 times through the loop, give the semaphore
-		if(++count >= 5)
-		{
-			count = 0;
-			SEGGER_SYSVIEW_PrintfHost("GreenTaskA gives semPtr");
-			xSemaphoreGive(semPtr);
-		}
-		HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0, GPIO_PIN_SET);
-		vTaskDelay(1000/portTICK_PERIOD_MS);
-		HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0, GPIO_PIN_RESET);
-		vTaskDelay(1000/portTICK_PERIOD_MS);
-	}
+    uint32_t receivedCounter = 0;
+    uint32_t timedoutCounter = 0;
+    while(1)
+    {
+        // 'take' the mutex with a 200mS timeout
+        SEGGER_SYSVIEW_PrintfHost("attempt to take mutex");
+        if(xSemaphoreTake(mutexPtr, 200/portTICK_PERIOD_MS) == pdPASS)
+        {
+        	HAL_GPIO_WritePin(GPIOB, GPIO_PIN_14, GPIO_PIN_RESET);
+            receivedCounter++;
+            // In calling SEGGER_SYSVIEW_PrintfHost, the space between the %u and the closing
+            // quote appears to be a necessary work-around for a bug in the API.
+            SEGGER_SYSVIEW_PrintfHost("received mutexPtr: %u ", receivedCounter);
+            blinkTwice(&GreenLed);
+            xSemaphoreGive(mutexPtr);
+        }
+        else
+        {
+            // This code is called when the mutex wasn't taken in time
+            timedoutCounter++;
+            SEGGER_SYSVIEW_PrintfHost("FAILED to take mutex in time: %u ", timedoutCounter);
+            HAL_GPIO_WritePin(GPIOB, GPIO_PIN_14, GPIO_PIN_SET);
+        }
+        // Sleep for a bit to let other tasks run
+        // StmRand will return a random number between 5 and 30 (inclusive).
+        vTaskDelay(StmRand(5,30));
+    }
 }
 
 /**
- * BlueTaskB waits to receive semPtr, then triple-blinks the blue LED
+ * This medium priority task just wakes up periodically and wastes time.
  */
-void BlueTaskB( void* argument )
+void TaskB( void* argument )
 {
-	while(1)
-	{
-		// 'take' the semaphore with no timeout.
-	    // * In our system, FreeRTOSConfig.h specifies "#define INCLUDE_vTaskSuspend 1".
-	    // * So, in xSemaphoreTake, portMAX_DELAY specifies an indefinite wait.
-		SEGGER_SYSVIEW_PrintfHost("BlueTaskB attempts to take semPtr");
-		if(xSemaphoreTake(semPtr, 500/portTICK_PERIOD_MS) == pdPASS)
-		{
-			SEGGER_SYSVIEW_PrintfHost("BlueTaskB received semPtr");
-			// Triple-blink the Blue LED
-			for(uint_fast8_t i = 0; i < 3; i++)
-			{
-				HAL_GPIO_WritePin(GPIOB, GPIO_PIN_7, GPIO_PIN_SET);
-				vTaskDelay(500/portTICK_PERIOD_MS);
-				HAL_GPIO_WritePin(GPIOB, GPIO_PIN_7, GPIO_PIN_RESET);
-				vTaskDelay(500/portTICK_PERIOD_MS);
-			}
-		}
-		else
-		{
-		//	This is the code that would be executed if we timed-out waiting for
-		//	the semaphore to be given.
-			HAL_GPIO_WritePin(GPIOB, GPIO_PIN_14, GPIO_PIN_SET);
-			 vTaskDelay(250/ portTICK_PERIOD_MS);
+    uint32_t counter = 0;
+    uint32_t spinTime;
+    uint32_t i;
 
-			 HAL_GPIO_WritePin(GPIOB, GPIO_PIN_14, GPIO_PIN_RESET);
+    while(1)
+    {
+        counter++;
+        SEGGER_SYSVIEW_PrintfHost("starting iteration %u ", counter);
+        vTaskDelay(StmRand(10,25));
 
-		}
-	}
+        // Each for-loop iteration takes 1 ms of processing time.
+        // The for-loop, as a whole, will use 30-75 ms of processing time.
+        spinTime = StmRand(30,75);
+        for (i=0; i<spinTime; i++){
+            lookBusy(iterationsPerMilliSecond);
+        }
+    }
 }
 
+/**
+ * The lowest priority task in the system.
+ * It is the same as TaskA, except:
+   * It calls blinkTwice() to blink the blue LED.
+   * It does not call vTaskDelay().
+ */
+void TaskC( void* argument )
+{
+    uint32_t receivedCounter = 0;
+    uint32_t timedoutCounter = 0;
+
+    while(1)
+    {
+        // 'take' the mutex with a 200mS timeout
+        SEGGER_SYSVIEW_PrintfHost("attempt to take mutex");
+        if(xSemaphoreTake(mutexPtr, 200/portTICK_PERIOD_MS) == pdPASS)
+        {
+        	HAL_GPIO_WritePin(GPIOB, GPIO_PIN_14, GPIO_PIN_RESET);
+            receivedCounter++;
+            SEGGER_SYSVIEW_PrintfHost("mutex taken: %u ", receivedCounter);
+            blinkTwice(&BlueLed);
+            xSemaphoreGive(mutexPtr);
+        }
+        else
+        {
+            // This code is called when the mutex wasn't taken in time
+            timedoutCounter++;
+            SEGGER_SYSVIEW_PrintfHost("FAILED to take mutex in time: %u ", timedoutCounter);
+            HAL_GPIO_WritePin(GPIOB, GPIO_PIN_14, GPIO_PIN_SET);
+        }
+    }
+}
+
+/**
+ * Blink the desired LED twice
+ */
+static void blinkTwice( LED* led )
+{
+    for(uint32_t i = 0; i < 2; i++)
+    {
+        led->On();
+        vTaskDelay(25/portTICK_PERIOD_MS);
+        led->Off();
+        vTaskDelay(25/portTICK_PERIOD_MS);
+    }
+}
 
 
 
