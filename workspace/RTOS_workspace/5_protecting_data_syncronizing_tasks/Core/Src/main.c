@@ -21,7 +21,10 @@
 #include "string.h"
 #include "freeRTOS.h"
 #include "task.h"
+#include <semphr.h>
 #include <SEGGER_SYSVIEW.h>
+#include <stm32f7xx_hal.h>
+
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 
@@ -29,24 +32,27 @@
 
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
-void GreenTask(void *argument);
-void BlueTask(void *argument);
-void RedTask(void *argument);
+#define STACK_SIZE 128
+void GreenTaskA( void * argument);
+void BlueTaskB( void* argumet );
 /* USER CODE END PTD */
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-TaskHandle_t blueTaskHandle;
 
-// * (128 * 4) = 512 bytes
-#define STACK_SIZE 128
+
+
+// Create storage for a pointer to a semaphore
+
+SemaphoreHandle_t semPtr = NULL;
+
+
 /* USER CODE END PD */
 
 // Define the stack and the the task control block (TCB) for RedTask to use
-static StackType_t RedTaskStack[STACK_SIZE];
-static StaticTask_t RedTaskTCB;
 
-uint32_t iterationsPerMilliSecond;
+
+
 /* Private macro -------------------------------------------------------------*/
 /* USER CODE BEGIN PM */
 
@@ -110,187 +116,105 @@ uint32_t iterationsPerMilliSecond;
 
 int main(void)
 {
+
 	BaseType_t status;
-  /* USER CODE BEGIN 1 */
-
-  /* USER CODE END 1 */
-
-  /* MCU Configuration--------------------------------------------------------*/
-
-  /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
-  HAL_Init();
-
-  /* USER CODE BEGIN Init */
-
-  /* USER CODE END Init */
-
-  /* Configure the system clock */
-  SystemClock_Config();
-
-  /* USER CODE BEGIN SysInit */
-
-  /* USER CODE END SysInit */
-
-  /* Initialize all configured peripherals */
-  MX_GPIO_Init();
-  MX_ETH_Init();
-  MX_USART3_UART_Init();
-  MX_USB_OTG_FS_PCD_Init();
-  /* USER CODE BEGIN 2 */
-
-  /* USER CODE END 2 */
-
-  /* Init scheduler */
-  // Get the interation-rate for lookBusy()
-      //iterationsPerMilliSecond = lookBusyIterationRate();
-
-      // If the task isn't created successfully, main() will spin in the infinite while-loop.
-      if (xTaskCreate(GreenTask, "GreenTask", STACK_SIZE, NULL, tskIDLE_PRIORITY + 2, NULL) != pdPASS){ while(1); }
-
-      // Using an assert to ensure proper task creation
-      status=xTaskCreate(BlueTask, "BlueTask", STACK_SIZE, NULL, tskIDLE_PRIORITY + 1, &blueTaskHandle);
-      assert_param(status == pdPASS);
-
-      // xTaskCreateStatic returns the task handle.
-      // The function always passes because the function's memory was statically allocated.
-      xTaskCreateStatic(RedTask, "RedTask", STACK_SIZE, NULL, tskIDLE_PRIORITY + 2, RedTaskStack, &RedTaskTCB);
-
-      SEGGER_SYSVIEW_Conf();
-
-      // Start the scheduler. It should not return unless there's a problem.
-      vTaskStartScheduler();
-
-  /* USER CODE BEGIN RTOS_MUTEX */
-  /* add mutexes, ... */
-  /* USER CODE END RTOS_MUTEX */
-
-  /* USER CODE BEGIN RTOS_SEMAPHORES */
-  /* add semaphores, ... */
-  /* USER CODE END RTOS_SEMAPHORES */
-
-  /* USER CODE BEGIN RTOS_TIMERS */
-  /* start timers, add new ones, ... */
-  /* USER CODE END RTOS_TIMERS */
-
-  /* USER CODE BEGIN RTOS_QUEUES */
-  /* add queues, ... */
-  /* USER CODE END RTOS_QUEUES */
-
-  /* Create the thread(s) */
-  /* creation of defaultTask */
+	  HAL_Init();
+	  SystemClock_Config();
+	  MX_GPIO_Init();
+	  MX_ETH_Init();
+	  MX_USART3_UART_Init();
+	  MX_USB_OTG_FS_PCD_Init();
 
 
-  /* USER CODE BEGIN RTOS_THREADS */
-  /* add threads, ... */
-  /* USER CODE END RTOS_THREADS */
+		SEGGER_SYSVIEW_Conf();
+		HAL_NVIC_SetPriorityGrouping(NVIC_PRIORITYGROUP_4);	//ensure proper priority grouping for freeRTOS
 
-  /* USER CODE BEGIN RTOS_EVENTS */
-  /* add events, ... */
-  /* USER CODE END RTOS_EVENTS */
+		// Create a semaphore using the FreeRTOS Heap
+		semPtr = xSemaphoreCreateBinary();
+	    // Ensure the pointer is valid (semaphore created successfully)
+		assert_param(semPtr != NULL);
 
-  /* Start scheduler */
+		// Create TaskA as a higher priority than TaskB.  In this example, this isn't strictly necessary since the tasks
+		// spend nearly all of their time blocked
+		status=xTaskCreate(GreenTaskA, "GreenTaskA", STACK_SIZE, NULL, tskIDLE_PRIORITY + 2, NULL);
+		assert_param(status == pdPASS);
+
+		// Using an assert to ensure proper task creation
+		status=xTaskCreate(BlueTaskB, "BlueTaskB", STACK_SIZE, NULL, tskIDLE_PRIORITY + 1, NULL);
+		assert_param( status == pdPASS);
+
+		// Start the scheduler - shouldn't return unless there's a problem
+		vTaskStartScheduler();
+
+		// If you've wound up here, there is likely an issue with over-running the freeRTOS heap
+		while(1)
+		{
+		}
 
 
-  /* We should never get here as control is now taken by the scheduler */
-
-  /* Infinite loop */
-  /* USER CODE BEGIN WHILE */
-  while (1)
-  {
-    /* USER CODE END WHILE */
-
-    /* USER CODE BEGIN 3 */
-  }
-  /* USER CODE END 3 */
 }
 
-/*
-  FUNCTION: lookBusy()
-  DESCRIPTION: Spin-loop for simulating useful processing.
-  DEPENDENCIES: Use lookBusyIterationRate() to calculate lookBusy's iteration-rate.
-*/
-void lookBusy( uint32_t numIterations )
+
+/**
+ * GreenTaskA periodically 'gives' semaphorePtr
+ * NOTES:
+ * - This semaphore isn't "given" to any task specifically
+ * - Giving the semaphore doesn't prevent GreenTaskA from continuing to run.
+ * - Note the green LED continues to blink at all times
+ */
+void GreenTaskA( void* argument )
 {
-	volatile uint32_t __attribute__((unused)) dontCare = 0;
-	for(int i = 0; i < numIterations; i++)
+	uint_fast8_t count = 0;
+	while(1)
 	{
-		dontCare = i % 4;
+		// Every 5 times through the loop, give the semaphore
+		if(++count >= 5)
+		{
+			count = 0;
+			SEGGER_SYSVIEW_PrintfHost("GreenTaskA gives semPtr");
+			xSemaphoreGive(semPtr);
+		}
+		HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0, GPIO_PIN_SET);
+		vTaskDelay(1000/portTICK_PERIOD_MS);
+		HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0, GPIO_PIN_RESET);
+		vTaskDelay(1000/portTICK_PERIOD_MS);
+	}
+}
+
+/**
+ * BlueTaskB waits to receive semPtr, then triple-blinks the blue LED
+ */
+void BlueTaskB( void* argument )
+{
+	while(1)
+	{
+		// 'take' the semaphore with no timeout.
+	    // * In our system, FreeRTOSConfig.h specifies "#define INCLUDE_vTaskSuspend 1".
+	    // * So, in xSemaphoreTake, portMAX_DELAY specifies an indefinite wait.
+		SEGGER_SYSVIEW_PrintfHost("BlueTaskB attempts to take semPtr");
+		if(xSemaphoreTake(semPtr, portMAX_DELAY) == pdPASS)
+		{
+			SEGGER_SYSVIEW_PrintfHost("BlueTaskB received semPtr");
+			// Triple-blink the Blue LED
+			for(uint_fast8_t i = 0; i < 3; i++)
+			{
+				HAL_GPIO_WritePin(GPIOB, GPIO_PIN_7, GPIO_PIN_SET);
+				vTaskDelay(500/portTICK_PERIOD_MS);
+				HAL_GPIO_WritePin(GPIOB, GPIO_PIN_7, GPIO_PIN_RESET);
+				vTaskDelay(500/portTICK_PERIOD_MS);
+			}
+		}
+//		else
+//		{
+//			This is the code that would be executed if we timed-out waiting for
+//			the semaphore to be given.
+//		}
 	}
 }
 
 
 
-void GreenTask(void *argument)
-{
-    // Indicate GreenTask started
-	HAL_GPIO_WritePin(GPIOB, GPIO_PIN_7, GPIO_PIN_SET);
-    // Spin until the user starts the SystemView app, in Record mode
-	while(SEGGER_SYSVIEW_IsStarted()==0){
-	        lookBusy(iterationsPerMilliSecond);
-	    }
-    vTaskDelay(2500 / portTICK_PERIOD_MS);
-    HAL_GPIO_WritePin(GPIOB, GPIO_PIN_7, GPIO_PIN_RESET);
 
-    SEGGER_SYSVIEW_PrintfHost("GreenTask started");
-
-    HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0, GPIO_PIN_SET);
-    SEGGER_SYSVIEW_PrintfHost("GreenTask LED ON");
-    vTaskDelay(1500 / portTICK_PERIOD_MS);
-    SEGGER_SYSVIEW_PrintfHost("GreenTask LED OFF");
-    HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0, GPIO_PIN_RESET);
-
-    SEGGER_SYSVIEW_PrintfHost("GreenTask is deleting itself");
-    // A task can delete itself by passing NULL to vTaskDelete
-    vTaskDelete(NULL);
-
-    // The task never gets to here
-    HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0, GPIO_PIN_SET);
-}
-
-void BlueTask( void* argument )
-{
-    while(1)
-    {
-        SEGGER_SYSVIEW_PrintfHost("BlueTask is starting a loop iteration");
-    	HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0, GPIO_PIN_SET);
-        vTaskDelay(200 / portTICK_PERIOD_MS);
-        HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0, GPIO_PIN_RESET);
-        vTaskDelay(200 / portTICK_PERIOD_MS);
-    }
-}
-
-
-void RedTask( void* argument )
-{
-    uint8_t firstIteration = 1;
-    uint32_t i;
-
-    while(1)
-    {
-    	SEGGER_SYSVIEW_PrintfHost("RedTask is starting a loop iteration");
-    	        // Spin for 1 second of processor time
-    	        for (i=0;i<1000;i++){
-    	            lookBusy(iterationsPerMilliSecond);
-    	        }
-
-        SEGGER_SYSVIEW_PrintfHost("RedTask is turning-on the red LED");
-        HAL_GPIO_WritePin(GPIOB, GPIO_PIN_14, GPIO_PIN_SET);
-
-        vTaskDelay(500/ portTICK_PERIOD_MS);
-
-        HAL_GPIO_WritePin(GPIOB, GPIO_PIN_14, GPIO_PIN_RESET);
-        vTaskDelay(500/ portTICK_PERIOD_MS);
-        firstIteration++;
-        if(firstIteration == 3)
-        {
-
-        SEGGER_SYSVIEW_PrintfHost("RedTask is deleting BlueTask");
-            // Tasks can delete one-another by passing the desired TaskHandle_t to vTaskDelete
-            vTaskDelete(blueTaskHandle);
-            firstIteration = 0;
-        }
-    }
-}
 /**
   * @brief System Clock Configuration
   * @retval None
