@@ -18,22 +18,23 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
-#include "cmsis_os.h"
+#include "string.h"
+#include "freeRTOS.h"
+#include "task.h"
+#include <semphr.h>
+#include <SEGGER_SYSVIEW.h>
+#include <stm32f4xx_hal.h>
 #include "fatfs.h"
-
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 
 #define STACK_SIZE 128
 void GreenTaskA( void * argument);
 void BlueTaskB( void* argument );
+void UartTaskC( void* argument );
 
-static StackType_t BlueTaskStack[STACK_SIZE];
-static StaticTask_t BlueTaskTCB;
-static StackType_t GreenTaskStack[STACK_SIZE];
-static StaticTask_t GreenTaskTCB;
 /* USER CODE END Includes */
-
+TO_ESP send_esp;
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
 // Create storage for a pointer to a semaphore
@@ -53,17 +54,10 @@ SemaphoreHandle_t semPtr = NULL;
 /* USER CODE END PM */
 
 /* Private variables ---------------------------------------------------------*/
-UART_HandleTypeDef huart2;
-DMA_HandleTypeDef hdma_usart2_rx;
-DMA_HandleTypeDef hdma_usart2_tx;
 
-/* Definitions for defaultTask */
-osThreadId_t defaultTaskHandle;
-const osThreadAttr_t defaultTask_attributes = {
-  .name = "defaultTask",
-  .stack_size = 128 * 4,
-  .priority = (osPriority_t) osPriorityNormal,
-};
+
+
+osThreadId defaultTaskHandle;
 /* USER CODE BEGIN PV */
 
 /* USER CODE END PV */
@@ -73,7 +67,7 @@ void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
 static void MX_DMA_Init(void);
 static void MX_USART2_UART_Init(void);
-void StartDefaultTask(void *argument);
+void StartDefaultTask(void const * argument);
 
 /* USER CODE BEGIN PFP */
 
@@ -119,54 +113,129 @@ int main(void)
   MX_FATFS_Init();
   /* USER CODE BEGIN 2 */
 
-  /* USER CODE END 2 */
-
   /* Init scheduler */
-  osKernelInitialize();
+    SEGGER_SYSVIEW_Conf();
 
-  /* USER CODE BEGIN RTOS_MUTEX */
-  /* add mutexes, ... */
-  /* USER CODE END RTOS_MUTEX */
+     		HAL_NVIC_SetPriorityGrouping(NVIC_PRIORITYGROUP_4);	//ensure proper priority grouping for freeRTOS
 
-  /* USER CODE BEGIN RTOS_SEMAPHORES */
-  /* add semaphores, ... */
-  /* USER CODE END RTOS_SEMAPHORES */
+     		// Create a semaphore using the FreeRTOS Heap
+     		semPtr = xSemaphoreCreateBinary();
+     	    // Ensure the pointer is valid (semaphore created successfully)
+     		assert_param(semPtr != NULL);
 
-  /* USER CODE BEGIN RTOS_TIMERS */
-  /* start timers, add new ones, ... */
-  /* USER CODE END RTOS_TIMERS */
 
-  /* USER CODE BEGIN RTOS_QUEUES */
-  /* add queues, ... */
-  /* USER CODE END RTOS_QUEUES */
+     		// Create TaskA as a higher priority than TaskB.  In this example, this isn't strictly necessary since the tasks
+     		// spend nearly all of their time blocked
 
-  /* Create the thread(s) */
-  /* creation of defaultTask */
-  defaultTaskHandle = osThreadNew(StartDefaultTask, NULL, &defaultTask_attributes);
+     		status=xTaskCreate(GreenTaskA, "GreenTaskA", STACK_SIZE, NULL, tskIDLE_PRIORITY + 2, NULL);
+     		assert_param(status == pdPASS);
+     		//xTaskCreateStatic(GreenTaskA, "GreenTaskA", STACK_SIZE, NULL, tskIDLE_PRIORITY + 2, GreenTaskStack, &GreenTaskTCB);
+     		// Using an assert to ensure proper task creation
+     		//xTaskCreateStatic(BlueTaskB, "BlueTaskB", STACK_SIZE, NULL, tskIDLE_PRIORITY + 2, BlueTaskStack, &BlueTaskTCB);
+     		status=xTaskCreate(BlueTaskB, "BlueTaskB", STACK_SIZE, NULL, tskIDLE_PRIORITY + 2, NULL);
+     		assert_param( status == pdPASS);
 
-  /* USER CODE BEGIN RTOS_THREADS */
-  /* add threads, ... */
-  /* USER CODE END RTOS_THREADS */
+     		status=xTaskCreate(UartTaskC, "UartTaskC", STACK_SIZE, NULL, tskIDLE_PRIORITY + 5, NULL);
+     		assert_param( status == pdPASS);
 
-  /* USER CODE BEGIN RTOS_EVENTS */
-  /* add events, ... */
-  /* USER CODE END RTOS_EVENTS */
+     		// Start the scheduler - shouldn't return unless there's a problem
+     		vTaskStartScheduler();
 
-  /* Start scheduler */
-  osKernelStart();
+     		// If you've wound up here, there is likely an issue with over-running the freeRTOS heap
+     		while(1)
+     		{
+     		}
 
-  /* We should never get here as control is now taken by the scheduler */
-  /* Infinite loop */
-  /* USER CODE BEGIN WHILE */
-  while (1)
-  {
-    /* USER CODE END WHILE */
+   }
 
-    /* USER CODE BEGIN 3 */
-  }
-  /* USER CODE END 3 */
-}
 
+
+
+
+   /**
+    * GreenTaskA periodically 'gives' semaphorePtr
+    * NOTES:
+    * - This semaphore isn't "given" to any task specifically
+    * - Giving the semaphore doesn't prevent GreenTaskA from continuing to run.
+    * - Note the green LED continues to blink at all times
+    */
+   void GreenTaskA( void* argument )
+   {
+   	uint_fast8_t count = 0;
+   	while(1)
+   	{
+   		// Every 5 times through the loop, give the semaphore
+   		if(++count >= 5)
+   		{
+   			count = 0;
+   			SEGGER_SYSVIEW_PrintfHost("GreenTaskA gives semPtr");
+   			xSemaphoreGive(semPtr);
+   		}
+   		HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_SET);
+   		//vTaskDelay(100/portTICK_PERIOD_MS);
+   		vTaskDelay(pdMS_TO_TICKS(100));
+   		HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_RESET);
+   		vTaskDelay(pdMS_TO_TICKS(100));
+   	}
+   }
+
+   /**
+    * BlueTaskB waits to receive semPtr, then triple-blinks the blue LED
+    */
+   void BlueTaskB( void* argument )
+   {
+   	while(1)
+   	{
+   		// 'take' the semaphore with no timeout.
+   	    // * In our system, FreeRTOSConfig.h specifies "#define INCLUDE_vTaskSuspend 1".
+   	    // * So, in xSemaphoreTake, portMAX_DELAY specifies an indefinite wait.
+   		SEGGER_SYSVIEW_PrintfHost("BlueTaskB attempts to take semPtr");
+   		if(xSemaphoreTake(semPtr, 500/portTICK_PERIOD_MS) == pdPASS)
+   		{
+   			SEGGER_SYSVIEW_PrintfHost("BlueTaskB received semPtr");
+   			// Triple-blink the Blue LED
+   			for(uint_fast8_t i = 0; i < 3; i++)
+   			{
+   				HAL_GPIO_WritePin(GPIOB, GPIO_PIN_5, GPIO_PIN_SET);
+   				vTaskDelay(pdMS_TO_TICKS(50));
+   				//vTaskDelay(50/portTICK_PERIOD_MS);
+   				HAL_GPIO_WritePin(GPIOB, GPIO_PIN_5, GPIO_PIN_RESET);
+   				//vTaskDelay(50/portTICK_PERIOD_MS);
+   				vTaskDelay(pdMS_TO_TICKS(50));
+   			}
+   		}
+   		else
+   		{
+   		//	This is the code that would be executed if we timed-out waiting for
+   		//	the semaphore to be given.
+   			HAL_GPIO_WritePin(GPIOB, GPIO_PIN_4, GPIO_PIN_SET);
+   			// vTaskDelay(25/ portTICK_PERIOD_MS);
+   			vTaskDelay(pdMS_TO_TICKS(50));
+   			 HAL_GPIO_WritePin(GPIOB, GPIO_PIN_4, GPIO_PIN_RESET);
+
+   		}
+   	}
+   }
+
+   void UartTaskC( void* argument )
+      {
+      	while(1)
+      	{
+      		uint8_t temp_buffer[64];
+      	//	uint16_t temp_buffer[sizeof(send_esp)];
+
+			size_t read_bytes;
+			SEGGER_SYSVIEW_PrintfHost("UartTaskC started");
+			read_bytes =get_rx_data(temp_buffer, sizeof(temp_buffer), 100);
+
+			//read_bytes =get_rx_data("data to print", sizeof("data to print"), 100);
+			SEGGER_SYSVIEW_PrintfHost("read");
+			put_tx_data_with_wait(temp_buffer,read_bytes);
+
+			//put_tx_data_with_wait("data to print",read_bytes);
+			SEGGER_SYSVIEW_PrintfHost("write");
+      	}
+      }
 /**
   * @brief System Clock Configuration
   * @retval None
@@ -219,52 +288,9 @@ void SystemClock_Config(void)
   * @param None
   * @retval None
   */
-static void MX_USART2_UART_Init(void)
-{
 
-  /* USER CODE BEGIN USART2_Init 0 */
 
-  /* USER CODE END USART2_Init 0 */
 
-  /* USER CODE BEGIN USART2_Init 1 */
-
-  /* USER CODE END USART2_Init 1 */
-  huart2.Instance = USART2;
-  huart2.Init.BaudRate = 115200;
-  huart2.Init.WordLength = UART_WORDLENGTH_8B;
-  huart2.Init.StopBits = UART_STOPBITS_1;
-  huart2.Init.Parity = UART_PARITY_NONE;
-  huart2.Init.Mode = UART_MODE_TX_RX;
-  huart2.Init.HwFlowCtl = UART_HWCONTROL_NONE;
-  huart2.Init.OverSampling = UART_OVERSAMPLING_16;
-  if (HAL_UART_Init(&huart2) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  /* USER CODE BEGIN USART2_Init 2 */
-
-  /* USER CODE END USART2_Init 2 */
-
-}
-
-/**
-  * Enable DMA controller clock
-  */
-static void MX_DMA_Init(void)
-{
-
-  /* DMA controller clock enable */
-  __HAL_RCC_DMA1_CLK_ENABLE();
-
-  /* DMA interrupt init */
-  /* DMA1_Stream5_IRQn interrupt configuration */
-  HAL_NVIC_SetPriority(DMA1_Stream5_IRQn, 5, 0);
-  HAL_NVIC_EnableIRQ(DMA1_Stream5_IRQn);
-  /* DMA1_Stream6_IRQn interrupt configuration */
-  HAL_NVIC_SetPriority(DMA1_Stream6_IRQn, 5, 0);
-  HAL_NVIC_EnableIRQ(DMA1_Stream6_IRQn);
-
-}
 
 /**
   * @brief GPIO Initialization Function
@@ -324,7 +350,7 @@ static void MX_GPIO_Init(void)
   * @retval None
   */
 /* USER CODE END Header_StartDefaultTask */
-void StartDefaultTask(void *argument)
+void StartDefaultTask(void const * argument)
 {
   /* USER CODE BEGIN 5 */
   /* Infinite loop */
