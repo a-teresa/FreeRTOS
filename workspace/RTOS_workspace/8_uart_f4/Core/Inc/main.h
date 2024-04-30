@@ -73,7 +73,9 @@ void Error_Handler(void);
 #define SWO_GPIO_Port GPIOB
 
 /* USER CODE BEGIN Private defines */
-
+void put_tx_data_with_wait(uint8_t *buffer, size_t buffer_length);
+int put_tx_data(uint8_t *buffer, size_t buffer_length);
+int get_rx_data(uint8_t *buffer, size_t buffer_length, uint32_t timeout);
 /* USER CODE END Private defines */
 
 #ifdef __cplusplus

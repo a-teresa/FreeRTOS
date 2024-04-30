@@ -33,6 +33,7 @@ void OnProjectLoad (void) {
   //
   // User settings
   //
+  Project.SetOSPlugin ("FreeRTOSPlugin_CM4");
   File.Open ("$(ProjectDir)/Debug/start_f4.elf");
 }
 

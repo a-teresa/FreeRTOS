@@ -31,6 +31,10 @@
 #define STACK_SIZE 128
 void GreenTaskA( void * argument);
 void BlueTaskB( void* argumet );
+static StackType_t BlueTaskStack[STACK_SIZE];
+static StaticTask_t BlueTaskTCB;
+static StackType_t GreenTaskStack[STACK_SIZE];
+static StaticTask_t GreenTaskTCB;
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -116,6 +120,7 @@ int main(void)
 
   /* Init scheduler */
   SEGGER_SYSVIEW_Conf();
+
    		HAL_NVIC_SetPriorityGrouping(NVIC_PRIORITYGROUP_4);	//ensure proper priority grouping for freeRTOS
 
    		// Create a semaphore using the FreeRTOS Heap
@@ -123,13 +128,16 @@ int main(void)
    	    // Ensure the pointer is valid (semaphore created successfully)
    		assert_param(semPtr != NULL);
 
+
    		// Create TaskA as a higher priority than TaskB.  In this example, this isn't strictly necessary since the tasks
    		// spend nearly all of their time blocked
+
    		status=xTaskCreate(GreenTaskA, "GreenTaskA", STACK_SIZE, NULL, tskIDLE_PRIORITY + 2, NULL);
    		assert_param(status == pdPASS);
-
+   		//xTaskCreateStatic(GreenTaskA, "GreenTaskA", STACK_SIZE, NULL, tskIDLE_PRIORITY + 2, GreenTaskStack, &GreenTaskTCB);
    		// Using an assert to ensure proper task creation
-   		status=xTaskCreate(BlueTaskB, "BlueTaskB", STACK_SIZE, NULL, tskIDLE_PRIORITY + 1, NULL);
+   		//xTaskCreateStatic(BlueTaskB, "BlueTaskB", STACK_SIZE, NULL, tskIDLE_PRIORITY + 2, BlueTaskStack, &BlueTaskTCB);
+   		status=xTaskCreate(BlueTaskB, "BlueTaskB", STACK_SIZE, NULL, tskIDLE_PRIORITY + 2, NULL);
    		assert_param( status == pdPASS);
 
    		// Start the scheduler - shouldn't return unless there's a problem
@@ -166,9 +174,10 @@ int main(void)
  			xSemaphoreGive(semPtr);
  		}
  		HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_SET);
- 		vTaskDelay(1000/portTICK_PERIOD_MS);
+ 		//vTaskDelay(100/portTICK_PERIOD_MS);
+ 		vTaskDelay(pdMS_TO_TICKS(100));
  		HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_RESET);
- 		vTaskDelay(1000/portTICK_PERIOD_MS);
+ 		vTaskDelay(pdMS_TO_TICKS(100));
  	}
  }
 
@@ -190,9 +199,11 @@ int main(void)
  			for(uint_fast8_t i = 0; i < 3; i++)
  			{
  				HAL_GPIO_WritePin(GPIOB, GPIO_PIN_5, GPIO_PIN_SET);
- 				vTaskDelay(500/portTICK_PERIOD_MS);
+ 				vTaskDelay(pdMS_TO_TICKS(50));
+ 				//vTaskDelay(50/portTICK_PERIOD_MS);
  				HAL_GPIO_WritePin(GPIOB, GPIO_PIN_5, GPIO_PIN_RESET);
- 				vTaskDelay(500/portTICK_PERIOD_MS);
+ 				//vTaskDelay(50/portTICK_PERIOD_MS);
+ 				vTaskDelay(pdMS_TO_TICKS(50));
  			}
  		}
  		else
@@ -200,8 +211,8 @@ int main(void)
  		//	This is the code that would be executed if we timed-out waiting for
  		//	the semaphore to be given.
  			HAL_GPIO_WritePin(GPIOB, GPIO_PIN_4, GPIO_PIN_SET);
- 			 vTaskDelay(250/ portTICK_PERIOD_MS);
-
+ 			// vTaskDelay(25/ portTICK_PERIOD_MS);
+ 			vTaskDelay(pdMS_TO_TICKS(50));
  			 HAL_GPIO_WritePin(GPIOB, GPIO_PIN_4, GPIO_PIN_RESET);
 
  		}
