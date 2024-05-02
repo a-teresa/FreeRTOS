@@ -24,7 +24,11 @@
 #include <semphr.h>
 #include <SEGGER_SYSVIEW.h>
 #include <stm32f4xx_hal.h>
+#include <stm32f4xx_it.h>
 #include "fatfs.h"
+#include "usart.h"
+#include <timer.h>
+
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 
@@ -32,7 +36,7 @@
 void GreenTaskA( void * argument);
 void BlueTaskB( void* argument );
 void UartTaskC( void* argument );
-
+void vHandlingTaskTimer (void* argument);
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -66,7 +70,7 @@ osThreadId defaultTaskHandle;
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
 static void MX_DMA_Init(void);
-static void MX_USART2_UART_Init(void);
+void MX_USART2_UART_Init(void);
 static void MX_TIM1_Init(void);
 
 /* USER CODE BEGIN PFP */
@@ -112,10 +116,16 @@ int main(void)
   MX_USART2_UART_Init();
   MX_FATFS_Init();
   MX_TIM1_Init();
+  init_struct_timers();
   /* USER CODE BEGIN 2 */
+
+
+
+
 
   /* Init scheduler */
     SEGGER_SYSVIEW_Conf();
+
 
      		HAL_NVIC_SetPriorityGrouping(NVIC_PRIORITYGROUP_4);	//ensure proper priority grouping for freeRTOS
 
@@ -136,11 +146,18 @@ int main(void)
      		status=xTaskCreate(BlueTaskB, "BlueTaskB", STACK_SIZE, NULL, tskIDLE_PRIORITY + 2, NULL);
      		assert_param( status == pdPASS);
 
-     		status=xTaskCreate(UartTaskC, "UartTaskC", STACK_SIZE, NULL, tskIDLE_PRIORITY + 5, NULL);
+     		status=xTaskCreate(UartTaskC, "UartTaskC", STACK_SIZE, NULL, tskIDLE_PRIORITY + 2, NULL);
      		assert_param( status == pdPASS);
 
+     		status=xTaskCreate(vHandlingTaskTimer, "vHandlingTaskTimer", STACK_SIZE, NULL, tskIDLE_PRIORITY + 2, NULL);
+     		     		assert_param( status == pdPASS);
      		// Start the scheduler - shouldn't return unless there's a problem
+
+     		HAL_TIM_Base_Start_IT(&htim1);
+
      		vTaskStartScheduler();
+
+
 
      		// If you've wound up here, there is likely an issue with over-running the freeRTOS heap
      		while(1)
@@ -210,10 +227,10 @@ int main(void)
    		{
    		//	This is the code that would be executed if we timed-out waiting for
    		//	the semaphore to be given.
-   			HAL_GPIO_WritePin(GPIOB, GPIO_PIN_4, GPIO_PIN_SET);
+   			HAL_GPIO_WritePin(GPIOB, GPIO_PIN_6, GPIO_PIN_SET);
    			vTaskDelay(25/ portTICK_PERIOD_MS);
    			//vTaskDelay(pdMS_TO_TICKS(500));
-   			 HAL_GPIO_WritePin(GPIOB, GPIO_PIN_4, GPIO_PIN_RESET);
+   			 HAL_GPIO_WritePin(GPIOB, GPIO_PIN_6, GPIO_PIN_RESET);
 
    		}
    	}
@@ -239,7 +256,122 @@ int main(void)
       	}
       }
 
+   void vHandlingTaskTimer( void *pvParameters )
+   {
+   uint32_t ulInterruptStatus;
+   SEGGER_SYSVIEW_PrintfHost("vHandlingTaskTimer notification call");
+   	   while(1)
+       {
+    	   /* Block indefinitely (without a timeout, so no need to check the function's
+    	           return value) to wait for a notification.  NOTE!  Real applications
+    	           should not block indefinitely, but instead time out occasionally in order
+    	           to handle error conditions that may prevent the interrupt from sending
+    	           any more notifications. */
+    	           xTaskNotifyWait( 0,                  /* Wait for 0th Notificaition */
+    	                                   0,          /* Clear all bits on exit. */
+    	                                   &ulInterruptStatus, /* Receives the notification value. */
+    	                                   portMAX_DELAY );    /* Block indefinitely. */
 
+
+    	          static uint8_t counter=0;
+    	           if(counter==0){
+    	        	   counter++;
+
+    	        	  // SEGGER_SYSVIEW_PrintfHost(counter);
+    	           }
+
+
+       }
+
+
+   }
+
+
+   /*****************************************************************************/
+   /*****************************************************************************/
+   void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
+   //void HAL_TIM_TriggerCallback(TIM_HandleTypeDef *htim){
+
+	   HAL_GPIO_WritePin(GPIOB, GPIO_PIN_6, GPIO_PIN_SET);
+
+   	  if (htim->Instance == TIM9) {
+   	    HAL_IncTick();
+   	  }
+   /*****************************************************************************/
+   	if (htim->Instance==TIM1){ //check if the interrupt comes from TIM1
+
+   		SEGGER_SYSVIEW_PrintfHost("Interrupt");
+   		BaseType_t xHigherPriorityTaskWoken;
+   		uint32_t ulStatusRegister;
+   		BaseType_t xTaskNotifyFromISR;
+
+   		timer.f_10ms[0]=1;
+   				timer.f_10ms[1]=1;
+   				timer.f_10ms[2]=1;
+   				timer.f_10ms[3]=1;
+   				timer.f_10ms[4]=1;
+   				timer.f_10ms[5]=1;
+   				timer.f_10ms[6]=1;
+   				timer.f_10ms[7]=1;
+
+   				timer.count[0]++;
+   				timer.count[1]++;
+   				timer.count[2]++;
+
+
+   				 xTaskNotifyFromISR( vHandlingTaskTimer,
+   				                               0,
+											   eNoAction,
+   				                               &xHigherPriorityTaskWoken );
+   //				 The macro used to do this is dependent on the port and may be called
+   //				     portEND_SWITCHING_ISR. */
+   				     portYIELD_FROM_ISR( xHigherPriorityTaskWoken );
+
+   		    // timer envent 100ms
+   		    if(timer.count[0]>=10){
+   		        timer.count[0]=0;
+   				timer.f_100ms[0]=!timer.f_100ms[0];
+   		        timer.f_100ms[1]=1;
+   		        timer.f_100ms[2]=1;
+   		        timer.f_100ms[3]=1;
+   		        timer.f_100ms[4]=1;
+   		        timer.f_100ms[5]=1;
+
+   						 //PutsU1("\n Test 100ms\0");
+   		    }
+
+
+
+   		    // timer envent 500ms
+   		    if(timer.count[1]>=50){
+   		         timer.count[1]=0;
+   		         timer.f_500ms[0]=!timer.f_500ms[0];
+   		         timer.f_500ms[1]=1;
+   		         timer.f_500ms[2]=1;
+   		         timer.f_500ms[3]=1;
+   		         timer.f_500ms[4]=1;
+   		         timer.f_500ms[5]=1;
+   						 //PutsU1("\n Test 500ms\0");
+   		    }
+
+
+   		    // timer envent 1000ms
+   		    if(timer.count[2]>=100){
+   		         timer.count[2]=0;
+   		         timer.f_1000ms[0]=!timer.f_1000ms[0];
+   		         timer.f_1000ms[1]=1;
+   		         timer.f_1000ms[2]=1;
+   		         timer.f_1000ms[3]=1;
+   		         timer.f_1000ms[4]=1;
+   		         timer.f_1000ms[5]=1;
+   						// PutsU1("\n Test 1000ms\0");
+
+   		   		}
+
+
+   		}
+
+   }
 
 /**
   * @brief TIM1 Initialization Function
@@ -260,9 +392,9 @@ static void MX_TIM1_Init(void)
 
   /* USER CODE END TIM1_Init 1 */
   htim1.Instance = TIM1;
-  htim1.Init.Prescaler = 0;
+  htim1.Init.Prescaler = 200;
   htim1.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim1.Init.Period = 65535;
+  htim1.Init.Period = 3599;
   htim1.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
   htim1.Init.RepetitionCounter = 0;
   htim1.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
@@ -287,7 +419,16 @@ static void MX_TIM1_Init(void)
 
 }
 
-
+void Error_Handler(void)
+{
+  /* USER CODE BEGIN Error_Handler_Debug */
+  /* User can add his own implementation to report the HAL error return state */
+  __disable_irq();
+  while (1)
+  {
+  }
+  /* USER CODE END Error_Handler_Debug */
+}
 /**
   * @brief System Clock Configuration
   * @retval None
@@ -305,14 +446,13 @@ void SystemClock_Config(void)
   /** Initializes the RCC Oscillators according to the specified parameters
   * in the RCC_OscInitTypeDef structure.
   */
-  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSI;
-  RCC_OscInitStruct.HSIState = RCC_HSI_ON;
-  RCC_OscInitStruct.HSICalibrationValue = RCC_HSICALIBRATION_DEFAULT;
+  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSE;
+  RCC_OscInitStruct.HSEState = RCC_HSE_BYPASS;
   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
-  RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSI;
-  RCC_OscInitStruct.PLL.PLLM = 16;
-  RCC_OscInitStruct.PLL.PLLN = 336;
-  RCC_OscInitStruct.PLL.PLLP = RCC_PLLP_DIV4;
+  RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSE;
+  RCC_OscInitStruct.PLL.PLLM = 4;
+  RCC_OscInitStruct.PLL.PLLN = 72;
+  RCC_OscInitStruct.PLL.PLLP = RCC_PLLP_DIV2;
   RCC_OscInitStruct.PLL.PLLQ = 4;
   RCC_OscInitStruct.PLL.PLLR = 2;
   if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
@@ -365,7 +505,7 @@ static void MX_GPIO_Init(void)
   HAL_GPIO_WritePin(LD2_GPIO_Port, LD2_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOB, GPIO_PIN_4|GPIO_PIN_5, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOB, GPIO_PIN_4|GPIO_PIN_5|GPIO_PIN_6, GPIO_PIN_RESET);
 
   /*Configure GPIO pin : B1_Pin */
   GPIO_InitStruct.Pin = B1_Pin;
@@ -380,8 +520,8 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(LD2_GPIO_Port, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : PB4 PB5 */
-  GPIO_InitStruct.Pin = GPIO_PIN_4|GPIO_PIN_5;
+  /*Configure GPIO pins : PB4 PB5 PB6 */
+  GPIO_InitStruct.Pin = GPIO_PIN_4|GPIO_PIN_5|GPIO_PIN_6;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
@@ -402,16 +542,7 @@ static void MX_GPIO_Init(void)
   * @retval None
   */
 /* USER CODE END Header_StartDefaultTask */
-void StartDefaultTask(void const * argument)
-{
-  /* USER CODE BEGIN 5 */
-  /* Infinite loop */
-  for(;;)
-  {
-    osDelay(1);
-  }
-  /* USER CODE END 5 */
-}
+
 
 /**
   * @brief  Period elapsed callback in non blocking mode
@@ -421,33 +552,7 @@ void StartDefaultTask(void const * argument)
   * @param  htim : TIM handle
   * @retval None
   */
-void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
-{
-  /* USER CODE BEGIN Callback 0 */
 
-  /* USER CODE END Callback 0 */
-  if (htim->Instance == TIM9) {
-    HAL_IncTick();
-  }
-  /* USER CODE BEGIN Callback 1 */
-
-  /* USER CODE END Callback 1 */
-}
-
-/**
-  * @brief  This function is executed in case of error occurrence.
-  * @retval None
-  */
-void Error_Handler(void)
-{
-  /* USER CODE BEGIN Error_Handler_Debug */
-  /* User can add his own implementation to report the HAL error return state */
-  __disable_irq();
-  while (1)
-  {
-  }
-  /* USER CODE END Error_Handler_Debug */
-}
 
 #ifdef  USE_FULL_ASSERT
 /**
