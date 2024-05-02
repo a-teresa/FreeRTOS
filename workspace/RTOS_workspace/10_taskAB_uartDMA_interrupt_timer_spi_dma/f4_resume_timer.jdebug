@@ -4,8 +4,8 @@
 *                         www.segger.com                             *
 **********************************************************************
 
-File          : C:/Users/ClosedLoop/Desktop/stm_projects/RTOS_test/FreeRTOS/workspace/RTOS_workspace/7_f410_semaphores/start_f4/f4_start.jdebug
-Created       : 26 Apr 2024 11:02
+File          : C:/Users/ClosedLoop/Desktop/stm_projects/RTOS_test/FreeRTOS/workspace/RTOS_workspace/9_taskAB_uartDMA_interrupt_timer/f4_resume_timer.jdebug
+Created       : 2 May 2024 08:48
 Ozone Version : V3.32a
 */
 
@@ -22,8 +22,8 @@ void OnProjectLoad (void) {
   //
   // Dialog-generated settings
   //
-  Project.AddPathSubstitute ("C:/Users/ClosedLoop/Desktop/stm_projects/RTOS_test/FreeRTOS/workspace/RTOS_workspace/7_f410_semaphores/start_f4", "$(ProjectDir)");
-  Project.AddPathSubstitute ("c:/users/closedloop/desktop/stm_projects/rtos_test/freertos/workspace/rtos_workspace/7_f410_semaphores/start_f4", "$(ProjectDir)");
+  Project.AddPathSubstitute ("C:/Users/ClosedLoop/Desktop/stm_projects/RTOS_test/FreeRTOS/workspace/RTOS_workspace/9_taskAB_uartDMA_interrupt_timer", "$(ProjectDir)");
+  Project.AddPathSubstitute ("c:/users/closedloop/desktop/stm_projects/rtos_test/freertos/workspace/rtos_workspace/9_taskab_uartdma_interrupt_timer", "$(ProjectDir)");
   Project.SetDevice ("STM32F410RB");
   Project.SetHostIF ("USB", "");
   Project.SetTargetIF ("JTAG");
@@ -33,7 +33,8 @@ void OnProjectLoad (void) {
   //
   // User settings
   //
-  File.Open ("$(ProjectDir)/Debug/start_f4.elf");
+  File.Open ("$(ProjectDir)/Debug/timer_interrupt.elf");
+  Project.SetOSPlugin ("FreeRTOSPlugin_CM4");
 }
 
 /*********************************************************************
