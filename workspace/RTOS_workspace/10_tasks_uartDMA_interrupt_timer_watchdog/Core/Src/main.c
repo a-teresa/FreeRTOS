@@ -37,7 +37,11 @@ void GreenTaskA( void * argument);
 void BlueTaskB( void* argument );
 void UartTaskC( void* argument );
 void vHandlingTaskTimer (void* argument);
+void vTaskMonitor (void* argument);
 TaskHandle_t timerTaskHandler = NULL;
+TaskHandle_t watchdogTaskHandler = NULL;
+TaskHandle_t ledATaskHandler = NULL;
+
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -59,6 +63,8 @@ SemaphoreHandle_t semPtr = NULL;
 /* USER CODE END PM */
 
 /* Private variables ---------------------------------------------------------*/
+
+IWDG_HandleTypeDef hiwdg;
 TIM_HandleTypeDef htim1;
 
 
@@ -73,6 +79,7 @@ static void MX_GPIO_Init(void);
 static void MX_DMA_Init(void);
 void MX_USART2_UART_Init(void);
 static void MX_TIM1_Init(void);
+static void MX_IWDG_Init(void);
 
 /* USER CODE BEGIN PFP */
 
@@ -82,6 +89,8 @@ static void MX_TIM1_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+uint16_t tasksRunning;
+static uint8_t taskAIsRunning=0;
 
 /* USER CODE END 0 */
 
@@ -118,6 +127,7 @@ int main(void)
   MX_FATFS_Init();
   MX_TIM1_Init();
   init_struct_timers();
+  MX_IWDG_Init();
   /* USER CODE BEGIN 2 */
 
 
@@ -139,7 +149,7 @@ int main(void)
      		// Create TaskA as a higher priority than TaskB.  In this example, this isn't strictly necessary since the tasks
      		// spend nearly all of their time blocked
 
-     		status=xTaskCreate(GreenTaskA, "GreenTaskA", STACK_SIZE, NULL, tskIDLE_PRIORITY + 2, NULL);
+     		status=xTaskCreate(GreenTaskA, "GreenTaskA", STACK_SIZE, NULL, tskIDLE_PRIORITY + 2, &ledATaskHandler);
      		assert_param(status == pdPASS);
      		//xTaskCreateStatic(GreenTaskA, "GreenTaskA", STACK_SIZE, NULL, tskIDLE_PRIORITY + 2, GreenTaskStack, &GreenTaskTCB);
      		// Using an assert to ensure proper task creation
@@ -151,8 +161,14 @@ int main(void)
      		assert_param( status == pdPASS);
 
      		status=xTaskCreate(vHandlingTaskTimer, "vHandlingTaskTimer", STACK_SIZE, NULL, tskIDLE_PRIORITY + 2, &timerTaskHandler);
-     		     		assert_param( status == pdPASS);
+     		assert_param( status == pdPASS);
      		// Start the scheduler - shouldn't return unless there's a problem
+
+			status=xTaskCreate(vTaskMonitor, "vTaskMonitor", STACK_SIZE, NULL, tskIDLE_PRIORITY + 3, &watchdogTaskHandler);
+			assert_param( status == pdPASS);
+
+
+
 
      		HAL_TIM_Base_Start_IT(&htim1);
 
@@ -183,6 +199,9 @@ int main(void)
    	uint_fast8_t count = 0;
    	while(1)
    	{
+   		//taskIsRunning=taskIsRunning|1;
+
+
    		// Every 5 times through the loop, give the semaphore
    		if(++count >= 5)
    		{
@@ -196,6 +215,7 @@ int main(void)
    		HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_RESET);
    		vTaskDelay(100/portTICK_PERIOD_MS);
    		//vTaskDelay(pdMS_TO_TICKS(100));
+   		taskAIsRunning=1;
    	}
    }
 
@@ -265,7 +285,7 @@ int main(void)
        {
    		vTaskSuspend(NULL);
    		SEGGER_SYSVIEW_PrintfHost("vHandlingTaskTimer notification call");
-   		HAL_GPIO_WritePin(GPIOB, GPIO_PIN_6, GPIO_PIN_RESET);
+   		//HAL_GPIO_WritePin(GPIOB, GPIO_PIN_6, GPIO_PIN_RESET);
    		SEGGER_SYSVIEW_PrintfHost("GPIO_PIN_RESET");
        }
 
@@ -291,13 +311,53 @@ int main(void)
 
    }
 
+   void vTaskMonitor( void *pvParameters )
+      {
+
+
+
+      	   while(1)
+          {
+      		 if(__HAL_RCC_GET_FLAG(RCC_FLAG_IWDGRST) != RESET){
+      		 vTaskDelay(1000/ portTICK_PERIOD_MS);
+      		   if(taskAIsRunning==1){
+      			 taskAIsRunning=0;
+      			__HAL_RCC_CLEAR_RESET_FLAGS();
+      		   }else{
+      			 vTaskSuspend(ledATaskHandler);
+      		   }
+//
+      		 }
+      		vTaskDelay(10/ portTICK_PERIOD_MS);
+      		HAL_IWDG_Init(&hiwdg);
+      		__HAL_IWDG_START(&hiwdg);
+      		   int counter;
+//      		   for(int i=0;i<50000;i++){
+//      			   counter++;
+//      		   }
+
+      		 vTaskDelay(10/ portTICK_PERIOD_MS);
+      			 HAL_GPIO_WritePin(GPIOB, GPIO_PIN_6, GPIO_PIN_SET);
+      			SEGGER_SYSVIEW_PrintfHost("WDT LED ON ");
+      			vTaskDelay(10/ portTICK_PERIOD_MS);
+//      		 if(taskIsRunning!=0)
+//      		 {
+//      			 SEGGER_SYSVIEW_PrintfHost("confirm task OK");
+//      		 }
+
+          }
+
+
+
+
+      }
 
    /*****************************************************************************/
    /*****************************************************************************/
    void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
    //void HAL_TIM_TriggerCallback(TIM_HandleTypeDef *htim){
 
-	   HAL_GPIO_WritePin(GPIOB, GPIO_PIN_6, GPIO_PIN_SET);
+	  // HAL_GPIO_WritePin(GPIOB, GPIO_PIN_6, GPIO_PIN_SET);
 
    	  if (htim->Instance == TIM9) {
    	    HAL_IncTick();
@@ -307,7 +367,7 @@ int main(void)
 
    		SEGGER_SYSVIEW_PrintfHost("Interrupt");
 
-   		  HAL_GPIO_WritePin(GPIOB, GPIO_PIN_6, GPIO_PIN_SET);
+   		 // HAL_GPIO_WritePin(GPIOB, GPIO_PIN_6, GPIO_PIN_SET);
    		SEGGER_SYSVIEW_PrintfHost("GPIO_PIN_SET");
 //   		BaseType_t xHigherPriorityTaskWoken;
 //   		uint32_t ulStatusRegister;
@@ -388,6 +448,33 @@ int main(void)
 
    }
 
+
+  /* @brief IWDG Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_IWDG_Init(void)
+{
+
+  /* USER CODE BEGIN IWDG_Init 0 */
+
+  /* USER CODE END IWDG_Init 0 */
+
+  /* USER CODE BEGIN IWDG_Init 1 */
+
+  /* USER CODE END IWDG_Init 1 */
+  hiwdg.Instance = IWDG;
+  hiwdg.Init.Prescaler = IWDG_PRESCALER_128;
+  hiwdg.Init.Reload = 4095;
+  if (HAL_IWDG_Init(&hiwdg) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN IWDG_Init 2 */
+
+  /* USER CODE END IWDG_Init 2 */
+
+}
 /**
   * @brief TIM1 Initialization Function
   * @param None
