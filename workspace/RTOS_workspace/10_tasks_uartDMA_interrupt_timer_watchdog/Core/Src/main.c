@@ -249,7 +249,7 @@ int main(void)
    		//	This is the code that would be executed if we timed-out waiting for
    		//	the semaphore to be given.
    			HAL_GPIO_WritePin(GPIOB, GPIO_PIN_4, GPIO_PIN_SET);
-   			vTaskDelay(25/ portTICK_PERIOD_MS);
+   			vTaskDelay(100/ portTICK_PERIOD_MS);
    			//vTaskDelay(pdMS_TO_TICKS(500));
    			 HAL_GPIO_WritePin(GPIOB, GPIO_PIN_4, GPIO_PIN_RESET);
 
