@@ -336,7 +336,7 @@ int main(void)
 //      			   counter++;
 //      		   }
 
-      		 vTaskDelay(10/ portTICK_PERIOD_MS);
+      		 vTaskDelay(1/ portTICK_PERIOD_MS);
       			 HAL_GPIO_WritePin(GPIOB, GPIO_PIN_6, GPIO_PIN_SET);
       			SEGGER_SYSVIEW_PrintfHost("WDT LED ON ");
       			vTaskDelay(10/ portTICK_PERIOD_MS);
