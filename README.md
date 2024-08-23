@@ -6,7 +6,7 @@
 <ul>  . mutex </ul> 
 <ul>  . binary semaphores  </ul> 
 
-  <h4>The purpose is to understand how to implement a system that can share data between tasks and improve performance while using multiple peripherals (I2C, SPI, UART, etc.). </h4>
+  <h4>The purpose is to understand how to implement a system that can share data between tasks and improve performance while using multiple peripherals (I2C, SPI, UART, etc.), as well as external interrups (e.g. hardware timer). </h4>
   <p>We usually avoid to share peripherals between tasks, but that reality is also explored.</p>
   
 
