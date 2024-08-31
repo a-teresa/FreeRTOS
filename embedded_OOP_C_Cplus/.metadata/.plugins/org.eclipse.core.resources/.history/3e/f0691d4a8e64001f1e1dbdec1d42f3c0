@@ -1,0 +1,18 @@
+
+#include "main.h"
+#include "uart.h"
+
+
+int main(void)
+{
+	UART2_Init();
+	teste_setup();
+
+  while (1)
+  {
+
+
+  }
+
+}
+

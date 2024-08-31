@@ -1,0 +1,6 @@
+../Core/Src/uart.c:2:6:USART2_init	1
+../Core/Src/uart.c:29:5:USAR2_write	2
+../Core/Src/uart.c:38:5:USART2_read	2
+/Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.macos64_1.1.100.202310310803/tools/arm-none-eabi/include/stdio.h:222:5:fgetc	2
+/Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.macos64_1.1.100.202310310803/tools/arm-none-eabi/include/stdio.h:224:5:fputc	1
+../Core/Src/uart.c:77:6:teste_setup	1

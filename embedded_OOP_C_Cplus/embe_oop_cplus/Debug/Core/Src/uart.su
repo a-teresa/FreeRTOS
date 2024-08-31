@@ -1,0 +1,6 @@
+../Core/Src/uart.cpp:2:6:void USART2_init()	4	static
+../Core/Src/uart.cpp:29:5:int USAR2_write(int)	16	static
+../Core/Src/uart.cpp:38:5:int USART2_read()	4	static
+../Core/Src/uart.cpp:48:5:int fgetc(FILE*)	24	static
+../Core/Src/uart.cpp:63:5:int fputc(int, FILE*)	16	static
+../Core/Src/uart.cpp:69:6:void teste_setup()	8	static

@@ -1,0 +1,22 @@
+#include "main.h"
+#include "led.h"
+
+Led led1(RED, ON);
+
+int main(void){
+
+	USART2_init();
+
+	Led led2(BLUE, ON);
+
+	Led *led3 = new Led(YELLOW, ON);
+
+	led1.getState();
+	led2.getState();
+	led3->getState();
+
+	delete led3;
+
+	while(1){
+
+	}

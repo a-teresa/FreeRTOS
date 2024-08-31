@@ -1,0 +1,130 @@
+#include "led.h"
+#include <uart.h>
+
+	Led::Led(LedColors_Type _color, LedState_Type _state)
+	{
+		this->color = _color;
+		this->state = _state;
+
+		/*Hrdware init*/
+
+		RCC->AHB1ENR |= LED_PORT_CLOCK;
+
+		switch(_color){
+
+			case RED:
+				LED_PORT->MODER |= LED_RED_MODE_BIT;
+				if(this->state == ON){
+					LED_PORT->ODR |= LED_RED_PIN;
+					printf("The red LED is set on \n\r");
+				}else{
+					LED_PORT->ODR &=~LED_RED_PIN;
+					printf("The red LED is set off \n\r");
+				}
+				break;
+			case YELLOW:
+					LED_PORT->MODER |= LED_YELLOW_MODE_BIT;
+					if(this->state == ON){
+						LED_PORT->ODR |= LED_YELLOW_PIN;
+						printf("The YELLOW LED is set on \n\r");
+					}else{
+						LED_PORT->ODR &=~LED_YELLOW_PIN;
+						printf("The YELLOW LED is set off \n\r");
+					}
+					break;
+			case GREEN:
+					LED_PORT->MODER |= LED_GREEN_MODE_BIT;
+					if(this->state == ON){
+						LED_PORT->ODR |= LED_GREEN_PIN;
+						printf("The GREEN LED is set on \n\r");
+					}else{
+						LED_PORT->ODR &=~LED_GREEN_PIN;
+						printf("The GREEN LED is set off \n\r");
+					}
+					break;
+			case BLUE:
+					LED_PORT->MODER |= LED_BLUE_MODE_BIT;
+					if(this->state == ON){
+						LED_PORT->ODR |= LED_BLUE_PIN;
+						printf("The BLUE LED is set on \n\r");
+					}else{
+						LED_PORT->ODR &=~LED_BLUE_PIN;
+						printf("The BLUE LED is set off \n\r");
+					}
+					break;
+
+	}
+
+}
+
+void Led::setState(LedState_Type _state){
+	this-> state = _state;
+
+
+
+
+	switch(this->color){
+
+		case RED:
+			LED_PORT->MODER |= LED_RED_MODE_BIT;
+			if(this->state == ON){
+				LED_PORT ->ODR|= LED_RED_PIN;
+				printf("The red LED is set on \n\r");
+			}else{
+				LED_PORT->ODR &=~LED_RED_PIN;
+				printf("The red LED is set off \n\r");
+			}
+			break;
+		case YELLOW:
+				LED_PORT->MODER |= LED_YELLOW_MODE_BIT;
+				if(this->state == ON){
+					LED_PORT ->ODR|= LED_YELLOW_PIN;
+					printf("The YELLOW LED is set on \n\r");
+				}else{
+					LED_PORT->ODR &=~LED_YELLOW_PIN;
+					printf("The YELLOW LED is set off \n\r");
+				}
+				break;
+		case GREEN:
+				LED_PORT->MODER |= LED_GREEN_MODE_BIT;
+				if(this->state == ON){
+					LED_PORT ->ODR|= LED_GREEN_PIN;
+					printf("The GREEN LED is set on \n\r");
+				}else{
+					LED_PORT->ODR &=~LED_GREEN_PIN;
+					printf("The GREEN LED is set off \n\r");
+				}
+				break;
+		case BLUE:
+				LED_PORT->MODER |= LED_BLUE_MODE_BIT;
+				if(this->state == ON){
+					LED_PORT ->ODR|= LED_BLUE_PIN;
+					printf("The BLUE LED is set on \n\r");
+				}else{
+					LED_PORT->ODR &=~LED_BLUE_PIN;
+					printf("The BLUE LED is set off \n\r");
+				}
+				break;
+
+	}
+}
+
+LedState_Type Led::getState(void)const{
+
+	switch(this->color){
+		case RED:
+			printf("The RED Led is currently %d \n\r", this->state);
+			break;
+		case GREEN:
+			printf("The GREEN Led is currently %d \n\r", this->state);
+			break;
+		case BLUE:
+			printf("The BLUE Led is currently %d \n\r", this->state);
+			break;
+		case YELLOW:
+			printf("The YELLOW Led is currently %d \n\r", this->state);
+			break;
+		}
+
+	return this->state;
+}

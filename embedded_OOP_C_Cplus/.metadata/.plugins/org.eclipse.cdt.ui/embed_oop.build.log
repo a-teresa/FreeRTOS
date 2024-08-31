@@ -1,0 +1,25 @@
+00:49:41 **** Incremental Build of configuration Debug for project embed_oop ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/uart.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F410Rx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/uart.d" -MT"Core/Src/uart.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/uart.o"
+../Core/Src/uart.c: In function 'USAR2_write':
+../Core/Src/uart.c:35:1: warning: control reaches end of non-void function [-Wreturn-type]
+   35 | }
+      | ^
+../Core/Src/uart.c: In function 'USART2_read':
+../Core/Src/uart.c:42:1: warning: control reaches end of non-void function [-Wreturn-type]
+   42 | }
+      | ^
+arm-none-eabi-gcc -o "embed_oop.elf" @"objects.list"   -mcpu=cortex-m4 -T"/Users/anateresaneto/Desktop/app/FreeRTOS/embedded_OOP_C_Cplus/embed_oop/STM32F410RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="embed_oop.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: embed_oop.elf
+ 
+arm-none-eabi-size  embed_oop.elf 
+arm-none-eabi-objdump -h -S embed_oop.elf  > "embed_oop.list"
+   text	   data	    bss	    dec	    hex	filename
+   6392	    104	   1912	   8408	   20d8	embed_oop.elf
+Finished building: default.size.stdout
+ 
+Finished building: embed_oop.list
+ 
+
+00:49:42 Build Finished. 0 errors, 2 warnings. (took 1s.298ms)
+

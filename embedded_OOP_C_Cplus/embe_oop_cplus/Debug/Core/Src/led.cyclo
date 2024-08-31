@@ -1,0 +1,3 @@
+../Core/Src/led.cpp:4:2:Led::Led(LedColors_Type, LedState_Type)	9
+../Core/Src/led.cpp:52:6:void Led::setState(LedState_Type)	9
+../Core/Src/led.cpp:96:15:LedState_Type Led::getState() const	1

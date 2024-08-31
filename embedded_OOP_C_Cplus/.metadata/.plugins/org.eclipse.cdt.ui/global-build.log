@@ -1,0 +1,20 @@
+Finished building target: embe_oop_cplus.elf
+ 
+arm-none-eabi-size  embe_oop_cplus.elf 
+arm-none-eabi-objdump -h -S embe_oop_cplus.elf  > "embe_oop_cplus.list"
+   text	   data	    bss	    dec	    hex	filename
+   2764	     96	   1916	   4776	   12a8	embe_oop_cplus.elf
+Finished building: default.size.stdout
+ 
+Finished building: embe_oop_cplus.list
+ 
+
+01:01:31 Build Finished. 0 errors, 0 warnings. (took 623ms)
+
+01:01:32 **** Incremental Build of configuration Debug for project embe_oop_cplus ****
+make -j7 all 
+arm-none-eabi-size  embe_oop_cplus.elf 
+   text	   data	    bss	    dec	    hex	filename
+   2764	     96	   1916	   4776	   12a8	embe_oop_cplus.elf
+Finished building: default.size.stdout
+ 

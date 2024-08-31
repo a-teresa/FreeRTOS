@@ -1,0 +1,910 @@
+16:46:43 **** Incremental Build of configuration Debug for project uart_driver ****
+make -j7 all 
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F410Rx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F410Rx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F410Rx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F410Rx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_exti.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F410Rx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_exti.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_exti.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_exti.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F410Rx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F410Rx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.o"
+In file included from ../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.c:97:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:203:8: error: unknown type name '__IO'
+  203 | extern __IO uint32_t uwTick;
+      |        ^~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:203:22: error: expected '=', ',', ';', 'asm' or '__attribute__' before 'uwTick'
+  203 | extern __IO uint32_t uwTick;
+      |                      ^~~~~~
+In file included from ../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.c:39:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:203:8: error: unknown type name '__IO'
+  203 | extern __IO uint32_t uwTick;
+      |        ^~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:203:22: error: expected '=', ',', ';', 'asm' or '__attribute__' before 'uwTick'
+  203 | extern __IO uint32_t uwTick;
+      |                      ^~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:204:8: error: unknown type name 'uint32_t'
+  204 | extern uint32_t uwTickPrio;
+      |        ^~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:204:8: error: unknown type name 'uint32_t'
+  204 | extern uint32_t uwTickPrio;
+      |        ^~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:218:1: error: unknown type name 'HAL_StatusTypeDef'
+  218 | HAL_StatusTypeDef HAL_Init(void);
+      | ^~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:218:1: error: unknown type name 'HAL_StatusTypeDef'
+  218 | HAL_StatusTypeDef HAL_Init(void);
+      | ^~~~~~~~~~~~~~~~~
+In file included from ../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash.c:76:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:203:8: error: unknown type name '__IO'
+  203 | extern __IO uint32_t uwTick;
+      |        ^~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:219:1: error: unknown type name 'HAL_StatusTypeDef'
+  219 | HAL_StatusTypeDef HAL_DeInit(void);
+      | ^~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:203:22: error: expected '=', ',', ';', 'asm' or '__attribute__' before 'uwTick'
+  203 | extern __IO uint32_t uwTick;
+      |                      ^~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:204:8: error: unknown type name 'uint32_t'
+  204 | extern uint32_t uwTickPrio;
+      |        ^~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:222:1: error: unknown type name 'HAL_StatusTypeDef'
+  222 | HAL_StatusTypeDef HAL_InitTick (uint32_t TickPriority);
+      | ^~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:219:1: error: unknown type name 'HAL_StatusTypeDef'
+  219 | HAL_StatusTypeDef HAL_DeInit(void);
+      | ^~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:222:33: error: unknown type name 'uint32_t'
+  222 | HAL_StatusTypeDef HAL_InitTick (uint32_t TickPriority);
+      |                                 ^~~~~~~~
+In file included from ../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.c:97:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:1:1: note: 'uint32_t' is defined in header '<stdint.h>'; did you forget to '#include <stdint.h>'?
+  +++ |+#include <stdint.h>
+    1 | /**
+In file included from ../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c:36:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:203:8: error: unknown type name '__IO'
+  203 | extern __IO uint32_t uwTick;
+      |        ^~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:203:22: error: expected '=', ',', ';', 'asm' or '__attribute__' before 'uwTick'
+  203 | extern __IO uint32_t uwTick;
+      |                      ^~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:204:8: error: unknown type name 'uint32_t'
+  204 | extern uint32_t uwTickPrio;
+      |        ^~~~~~~~
+In file included from ../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.c:97:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:232:16: error: unknown type name 'uint32_t'
+  232 | void HAL_Delay(uint32_t Delay);
+      |                ^~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:232:16: note: 'uint32_t' is defined in header '<stdint.h>'; did you forget to '#include <stdint.h>'?
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:233:1: error: unknown type name 'uint32_t'
+  233 | uint32_t HAL_GetTick(void);
+      | ^~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:233:1: note: 'uint32_t' is defined in header '<stdint.h>'; did you forget to '#include <stdint.h>'?
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:234:1: error: unknown type name 'uint32_t'
+  234 | uint32_t HAL_GetTickPrio(void);
+      | ^~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:234:1: note: 'uint32_t' is defined in header '<stdint.h>'; did you forget to '#include <stdint.h>'?
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:222:1: error: unknown type name 'HAL_StatusTypeDef'
+  222 | HAL_StatusTypeDef HAL_InitTick (uint32_t TickPriority);
+      | ^~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:222:33: error: unknown type name 'uint32_t'
+  222 | HAL_StatusTypeDef HAL_InitTick (uint32_t TickPriority);
+      |                                 ^~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:218:1: error: unknown type name 'HAL_StatusTypeDef'
+  218 | HAL_StatusTypeDef HAL_Init(void);
+      | ^~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:218:1: error: unknown type name 'HAL_StatusTypeDef'
+  218 | HAL_StatusTypeDef HAL_Init(void);
+      | ^~~~~~~~~~~~~~~~~
+In file included from ../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.c:39:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:1:1: note: 'uint32_t' is defined in header '<stdint.h>'; did you forget to '#include <stdint.h>'?
+  +++ |+#include <stdint.h>
+    1 | /**
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:235:1: error: unknown type name 'HAL_StatusTypeDef'
+  235 | HAL_StatusTypeDef HAL_SetTickFreq(HAL_TickFreqTypeDef Freq);
+      | ^~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:239:1: error: unknown type name 'uint32_t'
+  239 | uint32_t HAL_GetHalVersion(void);
+      | ^~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:239:1: note: 'uint32_t' is defined in header '<stdint.h>'; did you forget to '#include <stdint.h>'?
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:240:1: error: unknown type name 'uint32_t'
+  240 | uint32_t HAL_GetREVID(void);
+      | ^~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:240:1: note: 'uint32_t' is defined in header '<stdint.h>'; did you forget to '#include <stdint.h>'?
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:241:1: error: unknown type name 'uint32_t'
+  241 | uint32_t HAL_GetDEVID(void);
+      | ^~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:241:1: note: 'uint32_t' is defined in header '<stdint.h>'; did you forget to '#include <stdint.h>'?
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:250:1: error: unknown type name 'uint32_t'
+  250 | uint32_t HAL_GetUIDw0(void);
+      | ^~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:250:1: note: 'uint32_t' is defined in header '<stdint.h>'; did you forget to '#include <stdint.h>'?
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:251:1: error: unknown type name 'uint32_t'
+  251 | uint32_t HAL_GetUIDw1(void);
+      | ^~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:251:1: note: 'uint32_t' is defined in header '<stdint.h>'; did you forget to '#include <stdint.h>'?
+In file included from ../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.c:39:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:232:16: error: unknown type name 'uint32_t'
+  232 | void HAL_Delay(uint32_t Delay);
+      |                ^~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:252:1: error: unknown type name 'uint32_t'
+  252 | uint32_t HAL_GetUIDw2(void);
+      | ^~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:252:1: note: 'uint32_t' is defined in header '<stdint.h>'; did you forget to '#include <stdint.h>'?
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:232:16: note: 'uint32_t' is defined in header '<stdint.h>'; did you forget to '#include <stdint.h>'?
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:233:1: error: unknown type name 'uint32_t'
+  233 | uint32_t HAL_GetTick(void);
+      | ^~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:233:1: note: 'uint32_t' is defined in header '<stdint.h>'; did you forget to '#include <stdint.h>'?
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:219:1: error: unknown type name 'HAL_StatusTypeDef'
+  219 | HAL_StatusTypeDef HAL_DeInit(void);
+      | ^~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:234:1: error: unknown type name 'uint32_t'
+  234 | uint32_t HAL_GetTickPrio(void);
+      | ^~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:234:1: note: 'uint32_t' is defined in header '<stdint.h>'; did you forget to '#include <stdint.h>'?
+In file included from ../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_exti.c:86:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:203:8: error: unknown type name '__IO'
+  203 | extern __IO uint32_t uwTick;
+      |        ^~~~
+In file included from ../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c:81:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:203:8: error: unknown type name '__IO'
+  203 | extern __IO uint32_t uwTick;
+      |        ^~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:203:22: error: expected '=', ',', ';', 'asm' or '__attribute__' before 'uwTick'
+  203 | extern __IO uint32_t uwTick;
+      |                      ^~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:204:8: error: unknown type name 'uint32_t'
+  204 | extern uint32_t uwTickPrio;
+      |        ^~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:222:1: error: unknown type name 'HAL_StatusTypeDef'
+  222 | HAL_StatusTypeDef HAL_InitTick (uint32_t TickPriority);
+      | ^~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:222:33: error: unknown type name 'uint32_t'
+  222 | HAL_StatusTypeDef HAL_InitTick (uint32_t TickPriority);
+      |                                 ^~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:203:22: error: expected '=', ',', ';', 'asm' or '__attribute__' before 'uwTick'
+  203 | extern __IO uint32_t uwTick;
+      |                      ^~~~~~
+In file included from ../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c:36:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:1:1: note: 'uint32_t' is defined in header '<stdint.h>'; did you forget to '#include <stdint.h>'?
+  +++ |+#include <stdint.h>
+    1 | /**
+In file included from ../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c:36:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:232:16: error: unknown type name 'uint32_t'
+  232 | void HAL_Delay(uint32_t Delay);
+      |                ^~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:232:16: note: 'uint32_t' is defined in header '<stdint.h>'; did you forget to '#include <stdint.h>'?
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:204:8: error: unknown type name 'uint32_t'
+  204 | extern uint32_t uwTickPrio;
+      |        ^~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:233:1: error: unknown type name 'uint32_t'
+  233 | uint32_t HAL_GetTick(void);
+      | ^~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:233:1: note: 'uint32_t' is defined in header '<stdint.h>'; did you forget to '#include <stdint.h>'?
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:219:1: error: unknown type name 'HAL_StatusTypeDef'
+  219 | HAL_StatusTypeDef HAL_DeInit(void);
+      | ^~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:234:1: error: unknown type name 'uint32_t'
+  234 | uint32_t HAL_GetTickPrio(void);
+      | ^~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:234:1: note: 'uint32_t' is defined in header '<stdint.h>'; did you forget to '#include <stdint.h>'?
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:235:1: error: unknown type name 'HAL_StatusTypeDef'
+  235 | HAL_StatusTypeDef HAL_SetTickFreq(HAL_TickFreqTypeDef Freq);
+      | ^~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:235:1: error: unknown type name 'HAL_StatusTypeDef'
+  235 | HAL_StatusTypeDef HAL_SetTickFreq(HAL_TickFreqTypeDef Freq);
+      | ^~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:239:1: error: unknown type name 'uint32_t'
+  239 | uint32_t HAL_GetHalVersion(void);
+      | ^~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:239:1: note: 'uint32_t' is defined in header '<stdint.h>'; did you forget to '#include <stdint.h>'?
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:240:1: error: unknown type name 'uint32_t'
+  240 | uint32_t HAL_GetREVID(void);
+      | ^~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:240:1: note: 'uint32_t' is defined in header '<stdint.h>'; did you forget to '#include <stdint.h>'?
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:241:1: error: unknown type name 'uint32_t'
+  241 | uint32_t HAL_GetDEVID(void);
+      | ^~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:241:1: note: 'uint32_t' is defined in header '<stdint.h>'; did you forget to '#include <stdint.h>'?
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:218:1: error: unknown type name 'HAL_StatusTypeDef'
+  218 | HAL_StatusTypeDef HAL_Init(void);
+      | ^~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:250:1: error: unknown type name 'uint32_t'
+  250 | uint32_t HAL_GetUIDw0(void);
+      | ^~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:250:1: note: 'uint32_t' is defined in header '<stdint.h>'; did you forget to '#include <stdint.h>'?
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:239:1: error: unknown type name 'uint32_t'
+  239 | uint32_t HAL_GetHalVersion(void);
+      | ^~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:251:1: error: unknown type name 'uint32_t'
+  251 | uint32_t HAL_GetUIDw1(void);
+      | ^~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:251:1: note: 'uint32_t' is defined in header '<stdint.h>'; did you forget to '#include <stdint.h>'?
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:239:1: note: 'uint32_t' is defined in header '<stdint.h>'; did you forget to '#include <stdint.h>'?
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:252:1: error: unknown type name 'uint32_t'
+  252 | uint32_t HAL_GetUIDw2(void);
+      | ^~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:252:1: note: 'uint32_t' is defined in header '<stdint.h>'; did you forget to '#include <stdint.h>'?
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:240:1: error: unknown type name 'uint32_t'
+  240 | uint32_t HAL_GetREVID(void);
+      | ^~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:240:1: note: 'uint32_t' is defined in header '<stdint.h>'; did you forget to '#include <stdint.h>'?
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:241:1: error: unknown type name 'uint32_t'
+  241 | uint32_t HAL_GetDEVID(void);
+      | ^~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:241:1: note: 'uint32_t' is defined in header '<stdint.h>'; did you forget to '#include <stdint.h>'?
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:222:1: error: unknown type name 'HAL_StatusTypeDef'
+  222 | HAL_StatusTypeDef HAL_InitTick (uint32_t TickPriority);
+      | ^~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:219:1: error: unknown type name 'HAL_StatusTypeDef'
+  219 | HAL_StatusTypeDef HAL_DeInit(void);
+      | ^~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:250:1: error: unknown type name 'uint32_t'
+  250 | uint32_t HAL_GetUIDw0(void);
+      | ^~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:222:33: error: unknown type name 'uint32_t'
+  222 | HAL_StatusTypeDef HAL_InitTick (uint32_t TickPriority);
+      |                                 ^~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:250:1: note: 'uint32_t' is defined in header '<stdint.h>'; did you forget to '#include <stdint.h>'?
+In file included from ../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash.c:76:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:1:1: note: 'uint32_t' is defined in header '<stdint.h>'; did you forget to '#include <stdint.h>'?
+  +++ |+#include <stdint.h>
+    1 | /**
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c:94:1: error: unknown type name '__IO'
+   94 | __IO uint32_t uwTick;
+      | ^~~~
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c:94:15: error: expected '=', ',', ';', 'asm' or '__attribute__' before 'uwTick'
+   94 | __IO uint32_t uwTick;
+      |               ^~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c:95:1: error: unknown type name 'uint32_t'
+   95 | uint32_t uwTickPrio   = (1UL << __NVIC_PRIO_BITS); /* Invalid PRIO */
+      | ^~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:251:1: error: unknown type name 'uint32_t'
+  251 | uint32_t HAL_GetUIDw1(void);
+      | ^~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c:37:1: note: 'uint32_t' is defined in header '<stdint.h>'; did you forget to '#include <stdint.h>'?
+   36 | #include "stm32f4xx_hal.h"
+  +++ |+#include <stdint.h>
+   37 | 
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:251:1: note: 'uint32_t' is defined in header '<stdint.h>'; did you forget to '#include <stdint.h>'?
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:252:1: error: unknown type name 'uint32_t'
+  252 | uint32_t HAL_GetUIDw2(void);
+      | ^~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:218:1: error: unknown type name 'HAL_StatusTypeDef'
+  218 | HAL_StatusTypeDef HAL_Init(void);
+      | ^~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:252:1: note: 'uint32_t' is defined in header '<stdint.h>'; did you forget to '#include <stdint.h>'?
+In file included from ../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash.c:76:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:232:16: error: unknown type name 'uint32_t'
+  232 | void HAL_Delay(uint32_t Delay);
+      |                ^~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:232:16: note: 'uint32_t' is defined in header '<stdint.h>'; did you forget to '#include <stdint.h>'?
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:222:1: error: unknown type name 'HAL_StatusTypeDef'
+  222 | HAL_StatusTypeDef HAL_InitTick (uint32_t TickPriority);
+      | ^~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:233:1: error: unknown type name 'uint32_t'
+  233 | uint32_t HAL_GetTick(void);
+      | ^~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:222:33: error: unknown type name 'uint32_t'
+  222 | HAL_StatusTypeDef HAL_InitTick (uint32_t TickPriority);
+      |                                 ^~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:233:1: note: 'uint32_t' is defined in header '<stdint.h>'; did you forget to '#include <stdint.h>'?
+In file included from ../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_exti.c:86:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:1:1: note: 'uint32_t' is defined in header '<stdint.h>'; did you forget to '#include <stdint.h>'?
+  +++ |+#include <stdint.h>
+    1 | /**
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:234:1: error: unknown type name 'uint32_t'
+  234 | uint32_t HAL_GetTickPrio(void);
+      | ^~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:234:1: note: 'uint32_t' is defined in header '<stdint.h>'; did you forget to '#include <stdint.h>'?
+In file included from ../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_exti.c:86:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:232:16: error: unknown type name 'uint32_t'
+  232 | void HAL_Delay(uint32_t Delay);
+      |                ^~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:232:16: note: 'uint32_t' is defined in header '<stdint.h>'; did you forget to '#include <stdint.h>'?
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:233:1: error: unknown type name 'uint32_t'
+  233 | uint32_t HAL_GetTick(void);
+      | ^~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:233:1: note: 'uint32_t' is defined in header '<stdint.h>'; did you forget to '#include <stdint.h>'?
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:234:1: error: unknown type name 'uint32_t'
+  234 | uint32_t HAL_GetTickPrio(void);
+      | ^~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:234:1: note: 'uint32_t' is defined in header '<stdint.h>'; did you forget to '#include <stdint.h>'?
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:235:1: error: unknown type name 'HAL_StatusTypeDef'
+  235 | HAL_StatusTypeDef HAL_SetTickFreq(HAL_TickFreqTypeDef Freq);
+      | ^~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:239:1: error: unknown type name 'uint32_t'
+  239 | uint32_t HAL_GetHalVersion(void);
+      | ^~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:239:1: note: 'uint32_t' is defined in header '<stdint.h>'; did you forget to '#include <stdint.h>'?
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:240:1: error: unknown type name 'uint32_t'
+  240 | uint32_t HAL_GetREVID(void);
+      | ^~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:240:1: note: 'uint32_t' is defined in header '<stdint.h>'; did you forget to '#include <stdint.h>'?
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:241:1: error: unknown type name 'uint32_t'
+  241 | uint32_t HAL_GetDEVID(void);
+      | ^~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:241:1: note: 'uint32_t' is defined in header '<stdint.h>'; did you forget to '#include <stdint.h>'?
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:250:1: error: unknown type name 'uint32_t'
+  250 | uint32_t HAL_GetUIDw0(void);
+      | ^~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:250:1: note: 'uint32_t' is defined in header '<stdint.h>'; did you forget to '#include <stdint.h>'?
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:235:1: error: unknown type name 'HAL_StatusTypeDef'
+  235 | HAL_StatusTypeDef HAL_SetTickFreq(HAL_TickFreqTypeDef Freq);
+      | ^~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:219:1: error: unknown type name 'HAL_StatusTypeDef'
+  219 | HAL_StatusTypeDef HAL_DeInit(void);
+      | ^~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:239:1: error: unknown type name 'uint32_t'
+  239 | uint32_t HAL_GetHalVersion(void);
+      | ^~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:239:1: note: 'uint32_t' is defined in header '<stdint.h>'; did you forget to '#include <stdint.h>'?
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:240:1: error: unknown type name 'uint32_t'
+  240 | uint32_t HAL_GetREVID(void);
+      | ^~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:240:1: note: 'uint32_t' is defined in header '<stdint.h>'; did you forget to '#include <stdint.h>'?
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:241:1: error: unknown type name 'uint32_t'
+  241 | uint32_t HAL_GetDEVID(void);
+      | ^~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:241:1: note: 'uint32_t' is defined in header '<stdint.h>'; did you forget to '#include <stdint.h>'?
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:250:1: error: unknown type name 'uint32_t'
+  250 | uint32_t HAL_GetUIDw0(void);
+      | ^~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:250:1: note: 'uint32_t' is defined in header '<stdint.h>'; did you forget to '#include <stdint.h>'?
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:251:1: error: unknown type name 'uint32_t'
+  251 | uint32_t HAL_GetUIDw1(void);
+      | ^~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:251:1: note: 'uint32_t' is defined in header '<stdint.h>'; did you forget to '#include <stdint.h>'?
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:252:1: error: unknown type name 'uint32_t'
+  252 | uint32_t HAL_GetUIDw2(void);
+      | ^~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:252:1: note: 'uint32_t' is defined in header '<stdint.h>'; did you forget to '#include <stdint.h>'?
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:251:1: error: unknown type name 'uint32_t'
+  251 | uint32_t HAL_GetUIDw1(void);
+      | ^~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:251:1: note: 'uint32_t' is defined in header '<stdint.h>'; did you forget to '#include <stdint.h>'?
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:252:1: error: unknown type name 'uint32_t'
+  252 | uint32_t HAL_GetUIDw2(void);
+      | ^~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:252:1: note: 'uint32_t' is defined in header '<stdint.h>'; did you forget to '#include <stdint.h>'?
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:222:1: error: unknown type name 'HAL_StatusTypeDef'
+  222 | HAL_StatusTypeDef HAL_InitTick (uint32_t TickPriority);
+      | ^~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:222:33: error: unknown type name 'uint32_t'
+  222 | HAL_StatusTypeDef HAL_InitTick (uint32_t TickPriority);
+      |                                 ^~~~~~~~
+In file included from ../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c:81:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:1:1: note: 'uint32_t' is defined in header '<stdint.h>'; did you forget to '#include <stdint.h>'?
+  +++ |+#include <stdint.h>
+    1 | /**
+In file included from ../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c:81:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:232:16: error: unknown type name 'uint32_t'
+  232 | void HAL_Delay(uint32_t Delay);
+      |                ^~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:232:16: note: 'uint32_t' is defined in header '<stdint.h>'; did you forget to '#include <stdint.h>'?
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:233:1: error: unknown type name 'uint32_t'
+  233 | uint32_t HAL_GetTick(void);
+      | ^~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:233:1: note: 'uint32_t' is defined in header '<stdint.h>'; did you forget to '#include <stdint.h>'?
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:234:1: error: unknown type name 'uint32_t'
+  234 | uint32_t HAL_GetTickPrio(void);
+      | ^~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:234:1: note: 'uint32_t' is defined in header '<stdint.h>'; did you forget to '#include <stdint.h>'?
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:235:1: error: unknown type name 'HAL_StatusTypeDef'
+  235 | HAL_StatusTypeDef HAL_SetTickFreq(HAL_TickFreqTypeDef Freq);
+      | ^~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:239:1: error: unknown type name 'uint32_t'
+  239 | uint32_t HAL_GetHalVersion(void);
+      | ^~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:239:1: note: 'uint32_t' is defined in header '<stdint.h>'; did you forget to '#include <stdint.h>'?
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:240:1: error: unknown type name 'uint32_t'
+  240 | uint32_t HAL_GetREVID(void);
+      | ^~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:240:1: note: 'uint32_t' is defined in header '<stdint.h>'; did you forget to '#include <stdint.h>'?
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:241:1: error: unknown type name 'uint32_t'
+  241 | uint32_t HAL_GetDEVID(void);
+      | ^~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:241:1: note: 'uint32_t' is defined in header '<stdint.h>'; did you forget to '#include <stdint.h>'?
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:250:1: error: unknown type name 'uint32_t'
+  250 | uint32_t HAL_GetUIDw0(void);
+      | ^~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:250:1: note: 'uint32_t' is defined in header '<stdint.h>'; did you forget to '#include <stdint.h>'?
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:251:1: error: unknown type name 'uint32_t'
+  251 | uint32_t HAL_GetUIDw1(void);
+      | ^~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:251:1: note: 'uint32_t' is defined in header '<stdint.h>'; did you forget to '#include <stdint.h>'?
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:252:1: error: unknown type name 'uint32_t'
+  252 | uint32_t HAL_GetUIDw2(void);
+      | ^~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:252:1: note: 'uint32_t' is defined in header '<stdint.h>'; did you forget to '#include <stdint.h>'?
+In file included from ../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c:62:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:203:8: error: unknown type name '__IO'
+  203 | extern __IO uint32_t uwTick;
+      |        ^~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:203:22: error: expected '=', ',', ';', 'asm' or '__attribute__' before 'uwTick'
+  203 | extern __IO uint32_t uwTick;
+      |                      ^~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:204:8: error: unknown type name 'uint32_t'
+  204 | extern uint32_t uwTickPrio;
+      |        ^~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:218:1: error: unknown type name 'HAL_StatusTypeDef'
+  218 | HAL_StatusTypeDef HAL_Init(void);
+      | ^~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c:95:33: error: '__NVIC_PRIO_BITS' undeclared here (not in a function)
+   95 | uint32_t uwTickPrio   = (1UL << __NVIC_PRIO_BITS); /* Invalid PRIO */
+      |                                 ^~~~~~~~~~~~~~~~
+make: *** [Drivers/STM32F4xx_HAL_Driver/Src/subdir.mk:55: Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.o] Error 1
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:219:1: error: unknown type name 'HAL_StatusTypeDef'
+  219 | HAL_StatusTypeDef HAL_DeInit(void);
+      | ^~~~~~~~~~~~~~~~~
+make: *** Waiting for unfinished jobs....
+make: *** [Drivers/STM32F4xx_HAL_Driver/Src/subdir.mk:55: Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash.o] Error 1
+make: *** [Drivers/STM32F4xx_HAL_Driver/Src/subdir.mk:55: Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.o] Error 1
+make: *** [Drivers/STM32F4xx_HAL_Driver/Src/subdir.mk:55: Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_exti.o] Error 1
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:222:1: error: unknown type name 'HAL_StatusTypeDef'
+  222 | HAL_StatusTypeDef HAL_InitTick (uint32_t TickPriority);
+      | ^~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:222:33: error: unknown type name 'uint32_t'
+  222 | HAL_StatusTypeDef HAL_InitTick (uint32_t TickPriority);
+      |                                 ^~~~~~~~
+In file included from ../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c:62:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:1:1: note: 'uint32_t' is defined in header '<stdint.h>'; did you forget to '#include <stdint.h>'?
+  +++ |+#include <stdint.h>
+    1 | /**
+In file included from ../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c:62:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:232:16: error: unknown type name 'uint32_t'
+  232 | void HAL_Delay(uint32_t Delay);
+      |                ^~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:232:16: note: 'uint32_t' is defined in header '<stdint.h>'; did you forget to '#include <stdint.h>'?
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:233:1: error: unknown type name 'uint32_t'
+  233 | uint32_t HAL_GetTick(void);
+      | ^~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:233:1: note: 'uint32_t' is defined in header '<stdint.h>'; did you forget to '#include <stdint.h>'?
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:234:1: error: unknown type name 'uint32_t'
+  234 | uint32_t HAL_GetTickPrio(void);
+      | ^~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:234:1: note: 'uint32_t' is defined in header '<stdint.h>'; did you forget to '#include <stdint.h>'?
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:235:1: error: unknown type name 'HAL_StatusTypeDef'
+  235 | HAL_StatusTypeDef HAL_SetTickFreq(HAL_TickFreqTypeDef Freq);
+      | ^~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:239:1: error: unknown type name 'uint32_t'
+  239 | uint32_t HAL_GetHalVersion(void);
+      | ^~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:239:1: note: 'uint32_t' is defined in header '<stdint.h>'; did you forget to '#include <stdint.h>'?
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:240:1: error: unknown type name 'uint32_t'
+  240 | uint32_t HAL_GetREVID(void);
+      | ^~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:240:1: note: 'uint32_t' is defined in header '<stdint.h>'; did you forget to '#include <stdint.h>'?
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:241:1: error: unknown type name 'uint32_t'
+  241 | uint32_t HAL_GetDEVID(void);
+      | ^~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:241:1: note: 'uint32_t' is defined in header '<stdint.h>'; did you forget to '#include <stdint.h>'?
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:250:1: error: unknown type name 'uint32_t'
+  250 | uint32_t HAL_GetUIDw0(void);
+      | ^~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:250:1: note: 'uint32_t' is defined in header '<stdint.h>'; did you forget to '#include <stdint.h>'?
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:251:1: error: unknown type name 'uint32_t'
+  251 | uint32_t HAL_GetUIDw1(void);
+      | ^~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:251:1: note: 'uint32_t' is defined in header '<stdint.h>'; did you forget to '#include <stdint.h>'?
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:252:1: error: unknown type name 'uint32_t'
+  252 | uint32_t HAL_GetUIDw2(void);
+      | ^~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:252:1: note: 'uint32_t' is defined in header '<stdint.h>'; did you forget to '#include <stdint.h>'?
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c:157:1: error: unknown type name 'HAL_StatusTypeDef'
+  157 | HAL_StatusTypeDef HAL_Init(void)
+      | ^~~~~~~~~~~~~~~~~
+make: *** [Drivers/STM32F4xx_HAL_Driver/Src/subdir.mk:55: Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.o] Error 1
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c: In function 'HAL_Init':
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c:173:3: warning: implicit declaration of function 'HAL_NVIC_SetPriorityGrouping' [-Wimplicit-function-declaration]
+  173 |   HAL_NVIC_SetPriorityGrouping(NVIC_PRIORITYGROUP_4);
+      |   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c:173:32: error: 'NVIC_PRIORITYGROUP_4' undeclared (first use in this function)
+  173 |   HAL_NVIC_SetPriorityGrouping(NVIC_PRIORITYGROUP_4);
+      |                                ^~~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c:173:32: note: each undeclared identifier is reported only once for each function it appears in
+make: *** [Drivers/STM32F4xx_HAL_Driver/Src/subdir.mk:55: Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.o] Error 1
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c:176:3: warning: implicit declaration of function 'HAL_InitTick'; did you mean 'HAL_IncTick'? [-Wimplicit-function-declaration]
+  176 |   HAL_InitTick(TICK_INT_PRIORITY);
+      |   ^~~~~~~~~~~~
+      |   HAL_IncTick
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c:176:16: error: 'TICK_INT_PRIORITY' undeclared (first use in this function)
+  176 |   HAL_InitTick(TICK_INT_PRIORITY);
+      |                ^~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c:182:10: error: 'HAL_OK' undeclared (first use in this function)
+  182 |   return HAL_OK;
+      |          ^~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c: At top level:
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c:190:1: error: unknown type name 'HAL_StatusTypeDef'
+  190 | HAL_StatusTypeDef HAL_DeInit(void)
+      | ^~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c: In function 'HAL_DeInit':
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c:193:3: warning: implicit declaration of function '__HAL_RCC_APB1_FORCE_RESET' [-Wimplicit-function-declaration]
+  193 |   __HAL_RCC_APB1_FORCE_RESET();
+      |   ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c:194:3: warning: implicit declaration of function '__HAL_RCC_APB1_RELEASE_RESET' [-Wimplicit-function-declaration]
+  194 |   __HAL_RCC_APB1_RELEASE_RESET();
+      |   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c:196:3: warning: implicit declaration of function '__HAL_RCC_APB2_FORCE_RESET' [-Wimplicit-function-declaration]
+  196 |   __HAL_RCC_APB2_FORCE_RESET();
+      |   ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c:197:3: warning: implicit declaration of function '__HAL_RCC_APB2_RELEASE_RESET' [-Wimplicit-function-declaration]
+  197 |   __HAL_RCC_APB2_RELEASE_RESET();
+      |   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c:199:3: warning: implicit declaration of function '__HAL_RCC_AHB1_FORCE_RESET' [-Wimplicit-function-declaration]
+  199 |   __HAL_RCC_AHB1_FORCE_RESET();
+      |   ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c:200:3: warning: implicit declaration of function '__HAL_RCC_AHB1_RELEASE_RESET' [-Wimplicit-function-declaration]
+  200 |   __HAL_RCC_AHB1_RELEASE_RESET();
+      |   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c:202:3: warning: implicit declaration of function '__HAL_RCC_AHB2_FORCE_RESET' [-Wimplicit-function-declaration]
+  202 |   __HAL_RCC_AHB2_FORCE_RESET();
+      |   ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c:203:3: warning: implicit declaration of function '__HAL_RCC_AHB2_RELEASE_RESET' [-Wimplicit-function-declaration]
+  203 |   __HAL_RCC_AHB2_RELEASE_RESET();
+      |   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c:205:3: warning: implicit declaration of function '__HAL_RCC_AHB3_FORCE_RESET' [-Wimplicit-function-declaration]
+  205 |   __HAL_RCC_AHB3_FORCE_RESET();
+      |   ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c:206:3: warning: implicit declaration of function '__HAL_RCC_AHB3_RELEASE_RESET' [-Wimplicit-function-declaration]
+  206 |   __HAL_RCC_AHB3_RELEASE_RESET();
+      |   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c:212:10: error: 'HAL_OK' undeclared (first use in this function)
+  212 |   return HAL_OK;
+      |          ^~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c: At top level:
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c:219:7: error: expected ';' before 'void'
+  219 | __weak void HAL_MspInit(void)
+      |       ^~~~~
+      |       ;
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c:230:7: error: expected ';' before 'void'
+  230 | __weak void HAL_MspDeInit(void)
+      |       ^~~~~
+      |       ;
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c:253:1: error: unknown type name '__weak'
+  253 | __weak HAL_StatusTypeDef HAL_InitTick(uint32_t TickPriority)
+      | ^~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c:253:26: error: expected '=', ',', ';', 'asm' or '__attribute__' before 'HAL_InitTick'
+  253 | __weak HAL_StatusTypeDef HAL_InitTick(uint32_t TickPriority)
+      |                          ^~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c:312:7: error: expected ';' before 'void'
+  312 | __weak void HAL_IncTick(void)
+      |       ^~~~~
+      |       ;
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c: In function 'HAL_IncTick':
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c:314:3: error: 'uwTick' undeclared (first use in this function); did you mean 'uwTickFreq'?
+  314 |   uwTick += uwTickFreq;
+      |   ^~~~~~
+      |   uwTickFreq
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c: At top level:
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c:323:1: error: unknown type name '__weak'
+  323 | __weak uint32_t HAL_GetTick(void)
+      | ^~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c:323:17: error: expected '=', ',', ';', 'asm' or '__attribute__' before 'HAL_GetTick'
+  323 | __weak uint32_t HAL_GetTick(void)
+      |                 ^~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c:332:1: error: unknown type name 'uint32_t'
+  332 | uint32_t HAL_GetTickPrio(void)
+      | ^~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c:332:1: note: 'uint32_t' is defined in header '<stdint.h>'; did you forget to '#include <stdint.h>'?
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c:341:1: error: unknown type name 'HAL_StatusTypeDef'
+  341 | HAL_StatusTypeDef HAL_SetTickFreq(HAL_TickFreqTypeDef Freq)
+      | ^~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c: In function 'HAL_SetTickFreq':
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c:343:3: error: unknown type name 'HAL_StatusTypeDef'
+  343 |   HAL_StatusTypeDef status  = HAL_OK;
+      |   ^~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c:343:31: error: 'HAL_OK' undeclared (first use in this function)
+  343 |   HAL_StatusTypeDef status  = HAL_OK;
+      |                               ^~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c:346:3: warning: implicit declaration of function 'assert_param' [-Wimplicit-function-declaration]
+  346 |   assert_param(IS_TICKFREQ(Freq));
+      |   ^~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c: At top level:
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c:390:7: error: expected ';' before 'void'
+  390 | __weak void HAL_Delay(uint32_t Delay)
+      |       ^~~~~
+      |       ;
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c:390:23: error: unknown type name 'uint32_t'
+  390 | __weak void HAL_Delay(uint32_t Delay)
+      |                       ^~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c:390:23: note: 'uint32_t' is defined in header '<stdint.h>'; did you forget to '#include <stdint.h>'?
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c:416:7: error: expected ';' before 'void'
+  416 | __weak void HAL_SuspendTick(void)
+      |       ^~~~~
+      |       ;
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c: In function 'HAL_SuspendTick':
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c:419:3: error: 'SysTick' undeclared (first use in this function)
+  419 |   SysTick->CTRL &= ~SysTick_CTRL_TICKINT_Msk;
+      |   ^~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c:419:21: error: 'SysTick_CTRL_TICKINT_Msk' undeclared (first use in this function)
+  419 |   SysTick->CTRL &= ~SysTick_CTRL_TICKINT_Msk;
+      |                     ^~~~~~~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c: At top level:
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c:432:7: error: expected ';' before 'void'
+  432 | __weak void HAL_ResumeTick(void)
+      |       ^~~~~
+      |       ;
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c: In function 'HAL_ResumeTick':
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c:435:3: error: 'SysTick' undeclared (first use in this function)
+  435 |   SysTick->CTRL  |= SysTick_CTRL_TICKINT_Msk;
+      |   ^~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c:435:21: error: 'SysTick_CTRL_TICKINT_Msk' undeclared (first use in this function)
+  435 |   SysTick->CTRL  |= SysTick_CTRL_TICKINT_Msk;
+      |                     ^~~~~~~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c: At top level:
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c:442:1: error: unknown type name 'uint32_t'
+  442 | uint32_t HAL_GetHalVersion(void)
+      | ^~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c:442:1: note: 'uint32_t' is defined in header '<stdint.h>'; did you forget to '#include <stdint.h>'?
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c:451:1: error: unknown type name 'uint32_t'
+  451 | uint32_t HAL_GetREVID(void)
+      | ^~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c:451:1: note: 'uint32_t' is defined in header '<stdint.h>'; did you forget to '#include <stdint.h>'?
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c: In function 'HAL_GetREVID':
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c:453:11: error: 'DBGMCU' undeclared (first use in this function)
+  453 |   return((DBGMCU->IDCODE) >> 16U);
+      |           ^~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c: At top level:
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c:460:1: error: unknown type name 'uint32_t'
+  460 | uint32_t HAL_GetDEVID(void)
+      | ^~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c:460:1: note: 'uint32_t' is defined in header '<stdint.h>'; did you forget to '#include <stdint.h>'?
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c: In function 'HAL_GetDEVID':
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c:462:11: error: 'DBGMCU' undeclared (first use in this function)
+  462 |   return((DBGMCU->IDCODE) & IDCODE_DEVID_MASK);
+      |           ^~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c: In function 'HAL_DBGMCU_EnableDBGSleepMode':
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c:471:3: warning: implicit declaration of function 'SET_BIT' [-Wimplicit-function-declaration]
+  471 |   SET_BIT(DBGMCU->CR, DBGMCU_CR_DBG_SLEEP);
+      |   ^~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c:471:11: error: 'DBGMCU' undeclared (first use in this function)
+  471 |   SET_BIT(DBGMCU->CR, DBGMCU_CR_DBG_SLEEP);
+      |           ^~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c:471:23: error: 'DBGMCU_CR_DBG_SLEEP' undeclared (first use in this function)
+  471 |   SET_BIT(DBGMCU->CR, DBGMCU_CR_DBG_SLEEP);
+      |                       ^~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c: In function 'HAL_DBGMCU_DisableDBGSleepMode':
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c:480:3: warning: implicit declaration of function 'CLEAR_BIT' [-Wimplicit-function-declaration]
+  480 |   CLEAR_BIT(DBGMCU->CR, DBGMCU_CR_DBG_SLEEP);
+      |   ^~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c:480:13: error: 'DBGMCU' undeclared (first use in this function)
+  480 |   CLEAR_BIT(DBGMCU->CR, DBGMCU_CR_DBG_SLEEP);
+      |             ^~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c:480:25: error: 'DBGMCU_CR_DBG_SLEEP' undeclared (first use in this function)
+  480 |   CLEAR_BIT(DBGMCU->CR, DBGMCU_CR_DBG_SLEEP);
+      |                         ^~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c: In function 'HAL_DBGMCU_EnableDBGStopMode':
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c:489:11: error: 'DBGMCU' undeclared (first use in this function)
+  489 |   SET_BIT(DBGMCU->CR, DBGMCU_CR_DBG_STOP);
+      |           ^~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c:489:23: error: 'DBGMCU_CR_DBG_STOP' undeclared (first use in this function)
+  489 |   SET_BIT(DBGMCU->CR, DBGMCU_CR_DBG_STOP);
+      |                       ^~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c: In function 'HAL_DBGMCU_DisableDBGStopMode':
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c:498:13: error: 'DBGMCU' undeclared (first use in this function)
+  498 |   CLEAR_BIT(DBGMCU->CR, DBGMCU_CR_DBG_STOP);
+      |             ^~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c:498:25: error: 'DBGMCU_CR_DBG_STOP' undeclared (first use in this function)
+  498 |   CLEAR_BIT(DBGMCU->CR, DBGMCU_CR_DBG_STOP);
+      |                         ^~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c: In function 'HAL_DBGMCU_EnableDBGStandbyMode':
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c:507:11: error: 'DBGMCU' undeclared (first use in this function)
+  507 |   SET_BIT(DBGMCU->CR, DBGMCU_CR_DBG_STANDBY);
+      |           ^~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c:507:23: error: 'DBGMCU_CR_DBG_STANDBY' undeclared (first use in this function)
+  507 |   SET_BIT(DBGMCU->CR, DBGMCU_CR_DBG_STANDBY);
+      |                       ^~~~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c: In function 'HAL_DBGMCU_DisableDBGStandbyMode':
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c:516:13: error: 'DBGMCU' undeclared (first use in this function)
+  516 |   CLEAR_BIT(DBGMCU->CR, DBGMCU_CR_DBG_STANDBY);
+      |             ^~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c:516:25: error: 'DBGMCU_CR_DBG_STANDBY' undeclared (first use in this function)
+  516 |   CLEAR_BIT(DBGMCU->CR, DBGMCU_CR_DBG_STANDBY);
+      |                         ^~~~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c: In function 'HAL_EnableCompensationCell':
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c:527:5: error: '__IO' undeclared (first use in this function)
+  527 |   *(__IO uint32_t *)CMPCR_CMP_PD_BB = (uint32_t)ENABLE;
+      |     ^~~~
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c:527:9: error: expected ')' before 'uint32_t'
+  527 |   *(__IO uint32_t *)CMPCR_CMP_PD_BB = (uint32_t)ENABLE;
+      |    ~    ^~~~~~~~~
+      |         )
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c:78:36: error: 'uint32_t' undeclared (first use in this function)
+   78 | #define CMPCR_CMP_PD_BB           (uint32_t)(PERIPH_BB_BASE + (CMPCR_OFFSET * 32U) + (CMP_PD_BIT_NUMBER * 4U))
+      |                                    ^~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c:527:21: note: in expansion of macro 'CMPCR_CMP_PD_BB'
+  527 |   *(__IO uint32_t *)CMPCR_CMP_PD_BB = (uint32_t)ENABLE;
+      |                     ^~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c:78:36: note: 'uint32_t' is defined in header '<stdint.h>'; did you forget to '#include <stdint.h>'?
+   78 | #define CMPCR_CMP_PD_BB           (uint32_t)(PERIPH_BB_BASE + (CMPCR_OFFSET * 32U) + (CMP_PD_BIT_NUMBER * 4U))
+      |                                    ^~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c:527:21: note: in expansion of macro 'CMPCR_CMP_PD_BB'
+  527 |   *(__IO uint32_t *)CMPCR_CMP_PD_BB = (uint32_t)ENABLE;
+      |                     ^~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c:78:46: error: 'PERIPH_BB_BASE' undeclared (first use in this function)
+   78 | #define CMPCR_CMP_PD_BB           (uint32_t)(PERIPH_BB_BASE + (CMPCR_OFFSET * 32U) + (CMP_PD_BIT_NUMBER * 4U))
+      |                                              ^~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c:527:21: note: in expansion of macro 'CMPCR_CMP_PD_BB'
+  527 |   *(__IO uint32_t *)CMPCR_CMP_PD_BB = (uint32_t)ENABLE;
+      |                     ^~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c:67:36: error: 'SYSCFG_BASE' undeclared (first use in this function); did you mean 'SYSCFG_OFFSET'?
+   67 | #define SYSCFG_OFFSET             (SYSCFG_BASE - PERIPH_BASE)
+      |                                    ^~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c:76:36: note: in expansion of macro 'SYSCFG_OFFSET'
+   76 | #define CMPCR_OFFSET              (SYSCFG_OFFSET + 0x20U)
+      |                                    ^~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c:78:64: note: in expansion of macro 'CMPCR_OFFSET'
+   78 | #define CMPCR_CMP_PD_BB           (uint32_t)(PERIPH_BB_BASE + (CMPCR_OFFSET * 32U) + (CMP_PD_BIT_NUMBER * 4U))
+      |                                                                ^~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c:527:21: note: in expansion of macro 'CMPCR_CMP_PD_BB'
+  527 |   *(__IO uint32_t *)CMPCR_CMP_PD_BB = (uint32_t)ENABLE;
+      |                     ^~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c:67:50: error: 'PERIPH_BASE' undeclared (first use in this function)
+   67 | #define SYSCFG_OFFSET             (SYSCFG_BASE - PERIPH_BASE)
+      |                                                  ^~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c:76:36: note: in expansion of macro 'SYSCFG_OFFSET'
+   76 | #define CMPCR_OFFSET              (SYSCFG_OFFSET + 0x20U)
+      |                                    ^~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c:78:64: note: in expansion of macro 'CMPCR_OFFSET'
+   78 | #define CMPCR_CMP_PD_BB           (uint32_t)(PERIPH_BB_BASE + (CMPCR_OFFSET * 32U) + (CMP_PD_BIT_NUMBER * 4U))
+      |                                                                ^~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c:527:21: note: in expansion of macro 'CMPCR_CMP_PD_BB'
+  527 |   *(__IO uint32_t *)CMPCR_CMP_PD_BB = (uint32_t)ENABLE;
+      |                     ^~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c:77:35: error: 'SYSCFG_CMPCR_CMP_PD_Pos' undeclared (first use in this function)
+   77 | #define CMP_PD_BIT_NUMBER         SYSCFG_CMPCR_CMP_PD_Pos
+      |                                   ^~~~~~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c:78:87: note: in expansion of macro 'CMP_PD_BIT_NUMBER'
+   78 | #define CMPCR_CMP_PD_BB           (uint32_t)(PERIPH_BB_BASE + (CMPCR_OFFSET * 32U) + (CMP_PD_BIT_NUMBER * 4U))
+      |                                                                                       ^~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c:527:21: note: in expansion of macro 'CMPCR_CMP_PD_BB'
+  527 |   *(__IO uint32_t *)CMPCR_CMP_PD_BB = (uint32_t)ENABLE;
+      |                     ^~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c:527:49: error: expected ';' before 'ENABLE'
+  527 |   *(__IO uint32_t *)CMPCR_CMP_PD_BB = (uint32_t)ENABLE;
+      |                                                 ^~~~~~
+      |                                                 ;
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c: In function 'HAL_DisableCompensationCell':
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c:538:5: error: '__IO' undeclared (first use in this function)
+  538 |   *(__IO uint32_t *)CMPCR_CMP_PD_BB = (uint32_t)DISABLE;
+      |     ^~~~
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c:538:9: error: expected ')' before 'uint32_t'
+  538 |   *(__IO uint32_t *)CMPCR_CMP_PD_BB = (uint32_t)DISABLE;
+      |    ~    ^~~~~~~~~
+      |         )
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c:78:36: error: 'uint32_t' undeclared (first use in this function)
+   78 | #define CMPCR_CMP_PD_BB           (uint32_t)(PERIPH_BB_BASE + (CMPCR_OFFSET * 32U) + (CMP_PD_BIT_NUMBER * 4U))
+      |                                    ^~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c:538:21: note: in expansion of macro 'CMPCR_CMP_PD_BB'
+  538 |   *(__IO uint32_t *)CMPCR_CMP_PD_BB = (uint32_t)DISABLE;
+      |                     ^~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c:78:36: note: 'uint32_t' is defined in header '<stdint.h>'; did you forget to '#include <stdint.h>'?
+   78 | #define CMPCR_CMP_PD_BB           (uint32_t)(PERIPH_BB_BASE + (CMPCR_OFFSET * 32U) + (CMP_PD_BIT_NUMBER * 4U))
+      |                                    ^~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c:538:21: note: in expansion of macro 'CMPCR_CMP_PD_BB'
+  538 |   *(__IO uint32_t *)CMPCR_CMP_PD_BB = (uint32_t)DISABLE;
+      |                     ^~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c:78:46: error: 'PERIPH_BB_BASE' undeclared (first use in this function)
+   78 | #define CMPCR_CMP_PD_BB           (uint32_t)(PERIPH_BB_BASE + (CMPCR_OFFSET * 32U) + (CMP_PD_BIT_NUMBER * 4U))
+      |                                              ^~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c:538:21: note: in expansion of macro 'CMPCR_CMP_PD_BB'
+  538 |   *(__IO uint32_t *)CMPCR_CMP_PD_BB = (uint32_t)DISABLE;
+      |                     ^~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c:67:36: error: 'SYSCFG_BASE' undeclared (first use in this function); did you mean 'SYSCFG_OFFSET'?
+   67 | #define SYSCFG_OFFSET             (SYSCFG_BASE - PERIPH_BASE)
+      |                                    ^~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c:76:36: note: in expansion of macro 'SYSCFG_OFFSET'
+   76 | #define CMPCR_OFFSET              (SYSCFG_OFFSET + 0x20U)
+      |                                    ^~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c:78:64: note: in expansion of macro 'CMPCR_OFFSET'
+   78 | #define CMPCR_CMP_PD_BB           (uint32_t)(PERIPH_BB_BASE + (CMPCR_OFFSET * 32U) + (CMP_PD_BIT_NUMBER * 4U))
+      |                                                                ^~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c:538:21: note: in expansion of macro 'CMPCR_CMP_PD_BB'
+  538 |   *(__IO uint32_t *)CMPCR_CMP_PD_BB = (uint32_t)DISABLE;
+      |                     ^~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c:67:50: error: 'PERIPH_BASE' undeclared (first use in this function)
+   67 | #define SYSCFG_OFFSET             (SYSCFG_BASE - PERIPH_BASE)
+      |                                                  ^~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c:76:36: note: in expansion of macro 'SYSCFG_OFFSET'
+   76 | #define CMPCR_OFFSET              (SYSCFG_OFFSET + 0x20U)
+      |                                    ^~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c:78:64: note: in expansion of macro 'CMPCR_OFFSET'
+   78 | #define CMPCR_CMP_PD_BB           (uint32_t)(PERIPH_BB_BASE + (CMPCR_OFFSET * 32U) + (CMP_PD_BIT_NUMBER * 4U))
+      |                                                                ^~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c:538:21: note: in expansion of macro 'CMPCR_CMP_PD_BB'
+  538 |   *(__IO uint32_t *)CMPCR_CMP_PD_BB = (uint32_t)DISABLE;
+      |                     ^~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c:77:35: error: 'SYSCFG_CMPCR_CMP_PD_Pos' undeclared (first use in this function)
+   77 | #define CMP_PD_BIT_NUMBER         SYSCFG_CMPCR_CMP_PD_Pos
+      |                                   ^~~~~~~~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c:78:87: note: in expansion of macro 'CMP_PD_BIT_NUMBER'
+   78 | #define CMPCR_CMP_PD_BB           (uint32_t)(PERIPH_BB_BASE + (CMPCR_OFFSET * 32U) + (CMP_PD_BIT_NUMBER * 4U))
+      |                                                                                       ^~~~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c:538:21: note: in expansion of macro 'CMPCR_CMP_PD_BB'
+  538 |   *(__IO uint32_t *)CMPCR_CMP_PD_BB = (uint32_t)DISABLE;
+      |                     ^~~~~~~~~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c:538:49: error: expected ';' before 'DISABLE'
+  538 |   *(__IO uint32_t *)CMPCR_CMP_PD_BB = (uint32_t)DISABLE;
+      |                                                 ^~~~~~~
+      |                                                 ;
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c: At top level:
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c:545:1: error: unknown type name 'uint32_t'
+  545 | uint32_t HAL_GetUIDw0(void)
+      | ^~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c:545:1: note: 'uint32_t' is defined in header '<stdint.h>'; did you forget to '#include <stdint.h>'?
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c: In function 'HAL_GetUIDw0':
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c:547:11: warning: implicit declaration of function 'READ_REG' [-Wimplicit-function-declaration]
+  547 |   return (READ_REG(*((uint32_t *)UID_BASE)));
+      |           ^~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c:547:23: error: 'uint32_t' undeclared (first use in this function)
+  547 |   return (READ_REG(*((uint32_t *)UID_BASE)));
+      |                       ^~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c:547:23: note: 'uint32_t' is defined in header '<stdint.h>'; did you forget to '#include <stdint.h>'?
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c:547:33: error: expected expression before ')' token
+  547 |   return (READ_REG(*((uint32_t *)UID_BASE)));
+      |                                 ^
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c: At top level:
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c:554:1: error: unknown type name 'uint32_t'
+  554 | uint32_t HAL_GetUIDw1(void)
+      | ^~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c:554:1: note: 'uint32_t' is defined in header '<stdint.h>'; did you forget to '#include <stdint.h>'?
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c: In function 'HAL_GetUIDw1':
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c:556:23: error: 'uint32_t' undeclared (first use in this function)
+  556 |   return (READ_REG(*((uint32_t *)(UID_BASE + 4U))));
+      |                       ^~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c:556:23: note: 'uint32_t' is defined in header '<stdint.h>'; did you forget to '#include <stdint.h>'?
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c:556:33: error: expected expression before ')' token
+  556 |   return (READ_REG(*((uint32_t *)(UID_BASE + 4U))));
+      |                                 ^
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c:556:35: error: 'UID_BASE' undeclared (first use in this function)
+  556 |   return (READ_REG(*((uint32_t *)(UID_BASE + 4U))));
+      |                                   ^~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c: At top level:
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c:563:1: error: unknown type name 'uint32_t'
+  563 | uint32_t HAL_GetUIDw2(void)
+      | ^~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c:563:1: note: 'uint32_t' is defined in header '<stdint.h>'; did you forget to '#include <stdint.h>'?
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c: In function 'HAL_GetUIDw2':
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c:565:23: error: 'uint32_t' undeclared (first use in this function)
+  565 |   return (READ_REG(*((uint32_t *)(UID_BASE + 8U))));
+      |                       ^~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c:565:23: note: 'uint32_t' is defined in header '<stdint.h>'; did you forget to '#include <stdint.h>'?
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c:565:33: error: expected expression before ')' token
+  565 |   return (READ_REG(*((uint32_t *)(UID_BASE + 8U))));
+      |                                 ^
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c:565:35: error: 'UID_BASE' undeclared (first use in this function)
+  565 |   return (READ_REG(*((uint32_t *)(UID_BASE + 8U))));
+      |                                   ^~~~~~~~
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c: In function 'HAL_Init':
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c:183:1: warning: control reaches end of non-void function [-Wreturn-type]
+  183 | }
+      | ^
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c: In function 'HAL_DeInit':
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c:213:1: warning: control reaches end of non-void function [-Wreturn-type]
+  213 | }
+      | ^
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c: In function 'HAL_GetREVID':
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c:454:1: warning: control reaches end of non-void function [-Wreturn-type]
+  454 | }
+      | ^
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c: In function 'HAL_GetDEVID':
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c:463:1: warning: control reaches end of non-void function [-Wreturn-type]
+  463 | }
+      | ^
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c: In function 'HAL_GetUIDw0':
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c:548:1: warning: control reaches end of non-void function [-Wreturn-type]
+  548 | }
+      | ^
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c: In function 'HAL_GetUIDw1':
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c:557:1: warning: control reaches end of non-void function [-Wreturn-type]
+  557 | }
+      | ^
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c: In function 'HAL_GetUIDw2':
+../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c:566:1: warning: control reaches end of non-void function [-Wreturn-type]
+  566 | }
+      | ^
+make: *** [Drivers/STM32F4xx_HAL_Driver/Src/subdir.mk:55: Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.o] Error 1
+"make -j7 all" terminated with exit code 2. Build might be incomplete.
+
+16:46:43 Build Failed. 201 errors, 23 warnings. (took 452ms)
+

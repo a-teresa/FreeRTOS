@@ -1,0 +1,16 @@
+#include "main.h"
+#include "led.h"
+
+Led led1(RED, ON);
+
+int main(void){
+
+	USART2_init();
+
+	Led led2(BLUE, ON);
+
+	Led *led3 = new Led(YELLOW, ON);
+
+	while(1){
+
+	}
