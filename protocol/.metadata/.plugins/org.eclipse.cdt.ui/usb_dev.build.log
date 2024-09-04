@@ -1,10 +1,10 @@
-01:49:09 **** Incremental Build of configuration Debug for project usb_dev ****
+12:53:33 **** Incremental Build of configuration Debug for project usb_dev ****
 make -j4 all 
 arm-none-eabi-size  usb_dev.elf 
    text	   data	    bss	    dec	    hex	filename
-   5396	     96	   1904	   7396	   1ce4	usb_dev.elf
+   5388	     96	   1904	   7388	   1cdc	usb_dev.elf
 Finished building: default.size.stdout
  
 
-01:49:09 Build Finished. 0 errors, 0 warnings. (took 574ms)
+12:53:33 Build Finished. 0 errors, 0 warnings. (took 635ms)
 
