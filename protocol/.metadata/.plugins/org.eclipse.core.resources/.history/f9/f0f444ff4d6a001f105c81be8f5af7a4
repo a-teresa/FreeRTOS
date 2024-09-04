@@ -1,0 +1,36 @@
+#include <stdint.h>
+#include "system_stm32f4xx.h"
+#include "stm32f4xx.h"
+#include "stm32f410rx.h"
+#include "Helpers/logger.h"
+
+LogLevel system_log_level = LOG_LEVEL_DEBUG;
+uint32_t SystemCoreClock = 72000000; //72MHz -> first defined here; only declared in header file; because we are not changing it in run time,
+												//it's ok to mannually use iy, otherwise use SysemClockUpdate
+
+//HCLK=72 MHz
+/*adapt latency before changing the clock speed- > to not have any problem
+ * reading the instructions after increasing the clock frequency -- see "read
+ * interface" - reference manual*/
+
+//PLL: M=4, N=72, P=2, Q=3
+//AHB prescaller=1
+//APB prescaller1 = 2, APB prescaller2 ? 1
+//MC01 prescaller = 2
+
+
+void configure_clock()
+{
+	MODIFY_REG(FLASH->ACR,
+			FLASH_ACR_LATENCY,
+			_VAL2FLD(FLASH_ACR_LATENCY, FLASH_ACR_LATENCY_2WS)//FLASH_ACR_LATENCY_2WS << FLASH_ACR_LATENCY_Pos
+			);
+	//Enable HSE
+	SET_BIT(RCC->CR, RCC_CR_HSEON);
+
+
+}
+void SystemInit(void)
+{
+
+}

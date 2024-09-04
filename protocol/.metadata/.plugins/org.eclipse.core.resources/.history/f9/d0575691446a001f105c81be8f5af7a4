@@ -1,0 +1,7 @@
+#include "system_stm32f4xx.h"
+#include "Helpers/logger.h"
+
+int main(void){
+	log_info("Program_start");
+	for(;;);
+}

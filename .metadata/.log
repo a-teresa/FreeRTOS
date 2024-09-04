@@ -1,0 +1,34 @@
+!SESSION 2024-09-03 12:55:46.535 -----------------------------------------------
+eclipse.buildId=Version 1.16.0
+java.version=17.0.11
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=pt_PT
+Command-line arguments:  -os linux -ws gtk -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2024-09-03 12:56:06.997
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2024-09-03 12:56:06.998
+!MESSAGE Log4j2 initialized with config file /home/m/FreeRTOS/.metadata/.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2024-09-03 12:56:11.521
+!MESSAGE Started RMI Server, listening on port 41337
+!SESSION 2024-09-03 12:58:10.022 -----------------------------------------------
+eclipse.buildId=Version 1.16.0
+java.version=17.0.11
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=pt_PT
+Framework arguments:  /home/m/FreeRTOS/protocols
+Command-line arguments:  -os linux -ws gtk -arch x86_64 /home/m/FreeRTOS/protocols
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2024-09-03 12:58:22.885
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2024-09-03 12:58:22.886
+!MESSAGE Log4j2 initialized with config file /home/m/FreeRTOS/.metadata/.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2024-09-03 12:58:27.303
+!MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-09-03 13:25:09.342
+!MESSAGE Indexed 'usb_dev' (3 sources, 53 headers) in 2.57 sec: 1,950 declarations; 2,836 references; 0 unresolved inclusions; 2 syntax errors; 2 unresolved names (0.042%)

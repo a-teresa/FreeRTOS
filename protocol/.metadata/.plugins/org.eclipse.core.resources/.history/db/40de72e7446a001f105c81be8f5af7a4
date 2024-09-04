@@ -1,0 +1,20 @@
+#include <stdint.h>
+#include "system_stm32f4xx.h"
+#include "Helpers/logger.h"
+LogLevel system_log_level = LOG_LEVEL_DEBUG;
+
+//HCLK=72 MHz
+//PLL: M=4, N=72, P=2, Q=3
+//AHB prescaller=1
+//APB prescaller1 = 2, APB prescaller2 ? 1
+//MC01 prescaller = 2
+
+
+void configure_clock()
+{
+
+}
+void SystemInit(void)
+{
+
+}

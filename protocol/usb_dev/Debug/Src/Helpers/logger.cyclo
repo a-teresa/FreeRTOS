@@ -1,0 +1,8 @@
+/home/m/FreeRTOS/protocol/usb_dev/Inc/CMSIS/Include/core_cm4.h:2064:26:ITM_SendChar	4
+../Src/Helpers/logger.c:11:5:_write	2
+../Src/Helpers/logger.c:18:20:_get_log_level_string	5
+../Src/Helpers/logger.c:30:13:_log	2
+../Src/Helpers/logger.c:39:7:log_error	1
+../Src/Helpers/logger.c:54:7:log_info	1
+../Src/Helpers/logger.c:69:7:log_debug	1
+../Src/Helpers/logger.c:94:7:log_debug_array	4
