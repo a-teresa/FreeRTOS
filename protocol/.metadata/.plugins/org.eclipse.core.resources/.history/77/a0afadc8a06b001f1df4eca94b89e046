@@ -1,0 +1,14 @@
+#include "Helpers/logger.h"
+
+//other way to console to SWV...
+
+char _a[1]={'A'};
+char *pt_a = _a;
+
+int main(void){
+	ITM_SendChar(*pt_a);
+
+	log_info("Program_start");
+
+	for(;;);
+}

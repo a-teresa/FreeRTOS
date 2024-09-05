@@ -1,0 +1,6 @@
+1725549265226	Delete resource 'usb_dev'
+1725549583589	Delete resource 'debug_setup/Inc/CMSIS'
+1725551686725	Delete resource '1_Debugging_Basics/Debug'
+1725551955536	Rename resource '1_Debugging_Basics'
+1725553471885	Delete resource '2_configure_uart/Debug'
+1725553480513	Delete resource '2_configure_uart/1_Working_With_ITM Debug.launch'

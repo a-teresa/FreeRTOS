@@ -1,0 +1,2 @@
+/Users/anateresaneto/Desktop/app/FreeRTOS/protocol/1_Working_With_ITM/Inc/CMSIS/Include/core_cm4.h:2064:26:ITM_SendChar	16	static,ignoring_inline_asm
+../Src/main.c:12:5:main	16	static

@@ -1,0 +1,10 @@
+21:21:45 **** Incremental Build of configuration Debug for project 2_configure_uart ****
+make -j7 all 
+arm-none-eabi-size  2_configure_uart.elf 
+   text	   data	    bss	    dec	    hex	filename
+   5652	    104	   1904	   7660	   1dec	2_configure_uart.elf
+Finished building: default.size.stdout
+ 
+
+21:21:45 Build Finished. 0 errors, 0 warnings. (took 150ms)
+
