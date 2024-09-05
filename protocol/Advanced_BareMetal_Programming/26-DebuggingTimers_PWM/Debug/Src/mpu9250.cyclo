@@ -1,0 +1,9 @@
+../Src/mpu9250.c:30:6:mpu9250_ncs_pin_config	1
+../Src/mpu9250.c:40:6:mpu9250_ncs_pin_set	1
+../Src/mpu9250.c:46:6:mpu9250_ncs_pin_reset	1
+../Src/mpu9250.c:52:6:mpu9250_accel_config	5
+../Src/mpu9250.c:87:6:mpu9250_accel_update	1
+../Src/mpu9250.c:94:7:mpu9250_accel_get	2
+../Src/mpu9250.c:109:7:mpu9250_get_x	1
+../Src/mpu9250.c:114:7:mpu9250_get_y	1
+../Src/mpu9250.c:119:7:mpu9250_get_z	1

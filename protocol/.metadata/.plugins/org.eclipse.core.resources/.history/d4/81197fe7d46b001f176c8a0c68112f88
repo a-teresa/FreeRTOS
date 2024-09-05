@@ -1,0 +1,6 @@
+/Users/anateresaneto/Desktop/app/FreeRTOS/protocol/Advanced_BareMetal_Programming/13_PWM_Driver/chip_headers/CMSIS/Include/core_cm4.h:1688:22:__NVIC_EnableIRQ	2
+../Src/spi_dma.c:44:6:spi1_dma_init	1
+../Src/spi_dma.c:109:6:dma2_stream3_spi_tx_init	2
+../Src/spi_dma.c:153:6:dma2_stream2_spi_rx_init	2
+../Src/spi_dma.c:197:6:dma2_stream3_spi_transfer	1
+../Src/spi_dma.c:215:6:dma2_stream2_spi_receive	1

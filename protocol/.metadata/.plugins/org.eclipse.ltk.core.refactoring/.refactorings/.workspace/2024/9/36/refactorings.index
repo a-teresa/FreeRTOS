@@ -4,3 +4,8 @@
 1725551955536	Rename resource '1_Debugging_Basics'
 1725553471885	Delete resource '2_configure_uart/Debug'
 1725553480513	Delete resource '2_configure_uart/1_Working_With_ITM Debug.launch'
+1725574652252	Delete resource '13_PWM_Driver/Debug'
+1725574658908	Delete resource '13_PWM_Driver/13_PWM_Driver Debug.launch'
+1725574763322	Delete resource '13_PWM_Driver/Debug'
+1725575254543	Delete resource '26-DebuggingTimers_PWM/Debug'
+1725575261223	Delete resource '26-DebuggingTimers_PWM/26-DebuggingTimers_PWM.launch'
