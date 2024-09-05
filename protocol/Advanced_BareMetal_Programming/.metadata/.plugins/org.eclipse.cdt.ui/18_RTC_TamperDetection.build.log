@@ -1,0 +1,10 @@
+10:30:30 **** Incremental Build of configuration Debug for project 18_RTC_TamperDetection ****
+make -j8 all 
+arm-none-eabi-size   18_RTC_TamperDetection.elf 
+   text	   data	    bss	    dec	    hex	filename
+  24712	    476	   1596	  26784	   68a0	18_RTC_TamperDetection.elf
+Finished building: default.size.stdout
+ 
+
+10:30:31 Build Finished. 0 errors, 0 warnings. (took 412ms)
+

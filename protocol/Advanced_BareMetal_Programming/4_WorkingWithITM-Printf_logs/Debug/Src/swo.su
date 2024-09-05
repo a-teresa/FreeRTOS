@@ -1,0 +1,5 @@
+core_cm4.h:2064:26:ITM_SendChar	16	static,ignoring_inline_asm
+swo.c:7:5:__io_putchar	16	static
+swo.c:14:6:log_error	16	static
+swo.c:22:6:log_info	16	static
+swo.c:30:6:log_debug	16	static

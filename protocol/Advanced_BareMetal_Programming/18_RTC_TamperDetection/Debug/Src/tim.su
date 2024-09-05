@@ -1,0 +1,3 @@
+tim.c:10:6:tim2_pa0_pa1_pwm_init	4	static
+tim.c:78:6:tim2_pa0_pa1_pwm_set_dutycycle	16	static
+tim.c:98:6:pseudo_dly	16	static

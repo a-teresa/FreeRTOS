@@ -1,0 +1,10 @@
+12:46:26 **** Incremental Build of configuration Debug for project 22_ExitStandbyWithRTCWakeupTimer ****
+make -j8 all 
+arm-none-eabi-size   22_ExitStandbyWithRTCWakeupTimer.elf 
+   text	   data	    bss	    dec	    hex	filename
+  25200	    476	   1596	  27272	   6a88	22_ExitStandbyWithRTCWakeupTimer.elf
+Finished building: default.size.stdout
+ 
+
+12:46:27 Build Finished. 0 errors, 0 warnings. (took 471ms)
+

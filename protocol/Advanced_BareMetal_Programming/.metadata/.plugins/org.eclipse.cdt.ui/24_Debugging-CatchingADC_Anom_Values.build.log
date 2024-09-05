@@ -1,0 +1,10 @@
+08:15:36 **** Incremental Build of configuration Debug for project 24_Debugging-CatchingADC_Anom_Values ****
+make -j8 all 
+arm-none-eabi-size   24_Debugging-CatchingADC_Anom_Values.elf 
+   text	   data	    bss	    dec	    hex	filename
+   5912	    108	   1604	   7624	   1dc8	24_Debugging-CatchingADC_Anom_Values.elf
+Finished building: default.size.stdout
+ 
+
+08:15:37 Build Finished. 0 errors, 0 warnings. (took 320ms)
+

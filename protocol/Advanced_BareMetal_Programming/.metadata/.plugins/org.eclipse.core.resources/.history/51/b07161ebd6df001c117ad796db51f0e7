@@ -1,0 +1,42 @@
+#include "spi_dma.h"
+
+
+/*
+ *  PA5 :  SPI1_SCK
+ *	PA6 :  SPI1_MISO
+ *	PA7 :  SPI1_MOSI
+ *	*/
+
+#define GPIOAEN			(1U<<0)
+
+void spi1_dma_init(void)
+{
+
+	/*************GPIO Configuration*****************/
+	/*Enable clock to PORT of SPI pins*/
+	RCC->AHB1ENR |= GPIOAEN;
+
+	/*Set SPI pins mode to alternate function mode*/
+	/*PA5*/
+	GPIOA->MODER &=~(1U<<10);
+	GPIOA->MODER |=(1U<<11);
+
+	/*PA6*/
+	GPIOA->MODER &=~(1U<<12);
+	GPIOA->MODER |=(1U<<13);
+
+	/*PA7*/
+	GPIOA->MODER &=~(1U<<14);
+	GPIOA->MODER |=(1U<<15);
+
+	/*Set alternate type to AF5(SPI1)*/
+
+	/*************SPI Configuration*****************/
+
+	/*Enable clock access to SPI1 module*/
+	/*Set software slave management*/
+	/*Set SPI to master mode*/
+	/*Set CPHA and CPOL*/
+	/*Select to use DMA*/
+    /*Enable SPI*/
+}

@@ -1,0 +1,5 @@
+standby_mode.c:10:6:wakeup_pin_init	4	static
+standby_mode.c:24:6:enter_standby_mode_rtc_wkup	8	static,ignoring_inline_asm
+standby_mode.c:52:6:standby_wakeup_pin_setup	8	static,ignoring_inline_asm
+standby_mode.c:78:10:get_wakeup_pin_state	4	static
+standby_mode.c:84:13:set_power_mode	16	static

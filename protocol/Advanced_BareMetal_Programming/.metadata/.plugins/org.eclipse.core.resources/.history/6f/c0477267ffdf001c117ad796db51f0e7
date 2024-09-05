@@ -1,0 +1,109 @@
+#include "spi_dma.h"
+
+
+/*
+ *  PA5 :  SPI1_SCK
+ *	PA6 :  SPI1_MISO
+ *	PA7 :  SPI1_MOSI
+ *	*/
+
+#define GPIOAEN			(1U<<0)
+#define SPI1EN			(1U<<12)
+
+#define CR1_SSM			(1U<<9)
+#define CR1_SS1			(1U<<8)
+#define CR1_MSTR		(1U<<2)
+#define CR1_CPOL		(1U<<1)
+#define CR1_PHA			(1U<<0)
+#define CR2_TXDMAEN		(1U<<1)
+#define CR2_RXDMAEN		(1U<<0)
+#define CR1_SPE			(1U<<6)
+
+void spi1_dma_init(void)
+{
+
+	/*************GPIO Configuration*****************/
+	/*Enable clock to PORT of SPI pins*/
+	RCC->AHB1ENR |= GPIOAEN;
+
+	/*Set SPI pins mode to alternate function mode*/
+	/*PA5*/
+	GPIOA->MODER &=~(1U<<10);
+	GPIOA->MODER |=(1U<<11);
+
+	/*PA6*/
+	GPIOA->MODER &=~(1U<<12);
+	GPIOA->MODER |=(1U<<13);
+
+	/*PA7*/
+	GPIOA->MODER &=~(1U<<14);
+	GPIOA->MODER |=(1U<<15);
+
+	/*Set alternate type to AF5(SPI1)*/
+	/*PA5*/
+	GPIOA->AFR[0]  |= (1U<<20);
+	GPIOA->AFR[0]  &=~(1U<<21);
+	GPIOA->AFR[0]  |= (1U<<22);
+	GPIOA->AFR[0]  &=~(1U<<23);
+
+	/*PA6*/
+	GPIOA->AFR[0]  |= (1U<<24);
+	GPIOA->AFR[0]  &=~(1U<<25);
+	GPIOA->AFR[0]  |= (1U<<26);
+	GPIOA->AFR[0]  &=~(1U<<27);
+
+	/*PA7*/
+	GPIOA->AFR[0]  |= (1U<<28);
+	GPIOA->AFR[0]  &=~(1U<<29);
+	GPIOA->AFR[0]  |= (1U<<30);
+	GPIOA->AFR[0]  &=~(1U<<31);
+
+	/*************SPI Configuration*****************/
+
+	/*Enable clock access to SPI1 module*/
+	RCC->APB2ENR |=SPI1EN;
+
+	/*Set software slave management*/
+	SPI1->CR1 |= CR1_SSM|CR1_SSI;
+
+	/*Set SPI to master mode*/
+	SPI1->CR1 |=CR1_MSTR;
+
+	/*Set CPHA and CPOL*/
+	SPI1->CR1 |=SPI_CR1_BR_0|CR1_PHA|CR1_POL;
+
+	/*Set clock divider : PCLCK/4*/
+	SPI1->CR1 |=(1U<<3);
+	SPI1->CR1 &=~(1U<<4);
+	SPI1->CR1 &=~(1U<<5);
+
+	/*Select to use DMA*/
+	SPI1->CR2 |=CR2_RXDMAEN|CR2_TXDMAEN;
+
+    /*Enable SPI*/
+	SPI1->CR1 |=CR1_SPE;
+}
+
+void dma2_stream3_spi_tx_init(void)
+{
+	/************DMA Configuration**********/
+	/*Enable clock access to DMA*/
+	/*Disable DMA stream*/
+	/*Wait till DMA is disabled*/
+    /*******Configure DMA Stream parameters************/
+	/*Enable memory addr increment*/
+	/*Set transfer direction*/
+	/*Enable transfer complete interrupt*/
+	/*Enable transfer error interrupt*/
+	/*Configure DMA FIFO*/
+	/*Enable DMA interrupt in the NVIC*/
+
+}
+
+
+
+
+
+
+
+

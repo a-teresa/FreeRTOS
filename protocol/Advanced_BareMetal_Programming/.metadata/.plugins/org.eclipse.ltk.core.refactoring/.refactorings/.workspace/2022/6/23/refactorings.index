@@ -1,0 +1,17 @@
+1654588300933	Delete resource '15_RTC_Calendar/14_PWM_DMA_Driver.launch'
+1654588305410	Delete resource '15_RTC_Calendar/Debug'
+1654588493080	Delete resource '15_RTC_Calendar/Debug'
+1654600620685	Delete 2 resources
+1654600625634	Delete resource '16_RTC_Alarm/Debug'
+1654604806311	Delete 2 resources
+1654604811019	Delete resource '17_RTC_Timestamp/Debug'
+1654607498021	Delete resource '18_RTC_TamperDetection/17_RTC_Timestamp.launch'
+1654607502420	Delete resource '18_RTC_TamperDetection/Debug'
+1654669775419	Delete resource '19_IWDG_Automatic_Reset/18_RTC_TamperDetection.launch'
+1654669780292	Delete resource '19_IWDG_Automatic_Reset/Debug'
+1654678658415	Delete resource '20_WWDG_Automatic_Reset/19_IWDG_Automatic_Reset Debug.launch'
+1654678662798	Delete resource '20_WWDG_Automatic_Reset/Debug'
+1654682596595	Delete resource '21_StandByModeWithWakeupPin/20_WWDG_Automatic_Reset Debug.launch'
+1654682600904	Delete resource '21_StandByModeWithWakeupPin/Debug'
+1654688666119	Delete resource '22_ExitStandbyWithRTCWakeupTimer/21_StandByModeWithWakeupPin Debug.launch'
+1654688671139	Delete resource '22_ExitStandbyWithRTCWakeupTimer/Debug'

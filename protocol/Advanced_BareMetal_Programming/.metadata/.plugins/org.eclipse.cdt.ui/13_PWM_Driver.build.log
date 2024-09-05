@@ -1,0 +1,10 @@
+10:30:22 **** Incremental Build of configuration Debug for project 13_PWM_Driver ****
+make -j8 all 
+arm-none-eabi-size   13_PWM_Driver.elf 
+   text	   data	    bss	    dec	    hex	filename
+  24412	    476	   1596	  26484	   6774	13_PWM_Driver.elf
+Finished building: default.size.stdout
+ 
+
+10:30:23 Build Finished. 0 errors, 0 warnings. (took 510ms)
+

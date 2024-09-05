@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;19_IWDG_Automatic_Reset/Src/gpio_exit.c&apos; to &apos;gpio_exti.c&apos;" description="Rename resource &apos;gpio_exit.c&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="Src/gpio_exit.c" name="gpio_exti.c" stamp="1654672222545" updateReferences="true"/>
+</session>

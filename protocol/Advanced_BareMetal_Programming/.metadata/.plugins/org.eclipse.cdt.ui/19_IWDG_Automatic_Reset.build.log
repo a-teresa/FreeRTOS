@@ -1,0 +1,10 @@
+10:30:31 **** Incremental Build of configuration Debug for project 19_IWDG_Automatic_Reset ****
+make -j8 all 
+arm-none-eabi-size   19_IWDG_Automatic_Reset.elf 
+   text	   data	    bss	    dec	    hex	filename
+  24776	    476	   1596	  26848	   68e0	19_IWDG_Automatic_Reset.elf
+Finished building: default.size.stdout
+ 
+
+10:30:32 Build Finished. 0 errors, 0 warnings. (took 447ms)
+

@@ -1,0 +1,10 @@
+10:30:33 **** Incremental Build of configuration Debug for project 20_WWDG_Automatic_Reset ****
+make -j8 all 
+arm-none-eabi-size   20_WWDG_Automatic_Reset.elf 
+   text	   data	    bss	    dec	    hex	filename
+  25000	    476	   1596	  27072	   69c0	20_WWDG_Automatic_Reset.elf
+Finished building: default.size.stdout
+ 
+
+10:30:33 Build Finished. 0 errors, 0 warnings. (took 374ms)
+

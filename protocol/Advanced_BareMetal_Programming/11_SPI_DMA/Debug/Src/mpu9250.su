@@ -1,0 +1,11 @@
+mpu9250.c:37:6:mpu9250_ncs_pin_config	4	static
+mpu9250.c:47:6:mpu9250_ncs_pin_set	4	static
+mpu9250.c:53:6:mpu9250_ncs_pin_reset	4	static
+mpu9250.c:59:6:mpu9250_accel_config	16	static
+mpu9250.c:109:6:mpu9250_accel_update	8	static
+mpu9250.c:126:7:mpu9250_accel_get	24	static
+mpu9250.c:141:7:mpu9250_get_x	8	static
+mpu9250.c:146:7:mpu9250_get_y	8	static
+mpu9250.c:151:7:mpu9250_get_z	8	static
+mpu9250.c:155:6:DMA2_Stream3_IRQHandler	4	static
+mpu9250.c:177:6:DMA2_Stream2_IRQHandler	4	static

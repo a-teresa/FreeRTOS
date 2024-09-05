@@ -1,0 +1,6 @@
+core_cm4.h:1688:22:__NVIC_EnableIRQ	16	static
+spi_dma.c:44:6:spi1_dma_init	4	static
+spi_dma.c:109:6:dma2_stream3_spi_tx_init	8	static
+spi_dma.c:153:6:dma2_stream2_spi_rx_init	8	static
+spi_dma.c:197:6:dma2_stream3_spi_transfer	16	static
+spi_dma.c:215:6:dma2_stream2_spi_receive	16	static

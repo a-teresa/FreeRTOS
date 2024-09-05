@@ -1,0 +1,10 @@
+core_cm4.h:1688:22:__NVIC_EnableIRQ	16	static
+i2c_dma.c:50:6:i2c1_init	4	static
+i2c_dma.c:122:6:dma1_stream6_i2c1_tx_init	8	static
+i2c_dma.c:154:6:dma1_stream5_i2c1_rx_init	8	static
+i2c_dma.c:185:6:dma1_stream6_i2c1_transfer	16	static
+i2c_dma.c:213:6:dma1_stream5_i2c1_receive	16	static
+i2c_dma.c:242:6:i2c_dma_write	16	static
+i2c_dma.c:274:6:i2c_dma_read	16	static
+i2c_dma.c:352:6:DMA1_Stream6_IRQHandler	4	static
+i2c_dma.c:367:6:DMA1_Stream5_IRQHandler	4	static

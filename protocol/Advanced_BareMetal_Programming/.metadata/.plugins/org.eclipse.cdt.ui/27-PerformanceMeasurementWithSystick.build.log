@@ -1,0 +1,10 @@
+10:29:42 **** Incremental Build of configuration Debug for project 27-PerformanceMeasurementWithSystick ****
+make -j8 all 
+arm-none-eabi-size   27-PerformanceMeasurementWithSystick.elf 
+   text	   data	    bss	    dec	    hex	filename
+  27000	    512	   1624	  29136	   71d0	27-PerformanceMeasurementWithSystick.elf
+Finished building: default.size.stdout
+ 
+
+10:29:42 Build Finished. 0 errors, 0 warnings. (took 376ms)
+

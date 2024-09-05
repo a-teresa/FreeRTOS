@@ -1,0 +1,10 @@
+10:30:30 **** Incremental Build of configuration Debug for project 17_RTC_Timestamp ****
+make -j8 all 
+arm-none-eabi-size   17_RTC_Timestamp.elf 
+   text	   data	    bss	    dec	    hex	filename
+  26112	    476	   1636	  28224	   6e40	17_RTC_Timestamp.elf
+Finished building: default.size.stdout
+ 
+
+10:30:30 Build Finished. 0 errors, 0 warnings. (took 577ms)
+

@@ -1,0 +1,10 @@
+10:39:24 **** Incremental Build of configuration Debug for project 28-DumpingRegisterInformation ****
+make -j8 all 
+arm-none-eabi-size   28-DumpingRegisterInformation.elf 
+   text	   data	    bss	    dec	    hex	filename
+  24188	    476	   1724	  26388	   6714	28-DumpingRegisterInformation.elf
+Finished building: default.size.stdout
+ 
+
+10:39:24 Build Finished. 0 errors, 0 warnings. (took 469ms)
+

@@ -1,0 +1,10 @@
+10:30:21 **** Incremental Build of configuration Debug for project 12_I2C_DMA ****
+make -j8 all 
+arm-none-eabi-size   12_I2C_DMA.elf 
+   text	   data	    bss	    dec	    hex	filename
+  25612	    476	   1640	  27728	   6c50	12_I2C_DMA.elf
+Finished building: default.size.stdout
+ 
+
+10:30:22 Build Finished. 0 errors, 0 warnings. (took 516ms)
+

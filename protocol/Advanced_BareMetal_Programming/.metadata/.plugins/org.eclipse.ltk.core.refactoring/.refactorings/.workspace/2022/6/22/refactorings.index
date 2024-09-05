@@ -1,0 +1,8 @@
+1654057373338	Delete resource '12_I2C_DMA/Debug'
+1654057377373	Delete resource '12_I2C_DMA/11_SPI_DMA.launch'
+1654160590212	Delete resource '12_I2C_DMA/Src/uart_dma.c'
+1654160594001	Delete resource '12_I2C_DMA/Inc/uart_dma.h'
+1654236443166	Delete resource '13_PWM_Driver/Debug'
+1654236446921	Delete resource '13_PWM_Driver/12_I2C_DMA.launch'
+1654420695563	Delete resource '14_PWM_DMA_Driver/Debug'
+1654420700707	Delete resource '14_PWM_DMA_Driver/13_PWM_Driver Debug.launch'

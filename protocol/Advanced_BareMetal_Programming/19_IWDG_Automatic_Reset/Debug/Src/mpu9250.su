@@ -1,0 +1,9 @@
+mpu9250.c:30:6:mpu9250_ncs_pin_config	4	static
+mpu9250.c:40:6:mpu9250_ncs_pin_set	4	static
+mpu9250.c:46:6:mpu9250_ncs_pin_reset	4	static
+mpu9250.c:52:6:mpu9250_accel_config	16	static
+mpu9250.c:87:6:mpu9250_accel_update	8	static
+mpu9250.c:94:7:mpu9250_accel_get	24	static
+mpu9250.c:109:7:mpu9250_get_x	8	static
+mpu9250.c:114:7:mpu9250_get_y	8	static
+mpu9250.c:119:7:mpu9250_get_z	8	static

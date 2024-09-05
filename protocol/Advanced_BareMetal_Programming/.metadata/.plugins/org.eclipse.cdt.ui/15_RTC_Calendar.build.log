@@ -1,0 +1,10 @@
+10:30:27 **** Incremental Build of configuration Debug for project 15_RTC_Calendar ****
+make -j8 all 
+arm-none-eabi-size   15_RTC_Calendar.elf 
+   text	   data	    bss	    dec	    hex	filename
+  25328	    476	   1636	  27440	   6b30	15_RTC_Calendar.elf
+Finished building: default.size.stdout
+ 
+
+10:30:28 Build Finished. 0 errors, 0 warnings. (took 656ms)
+

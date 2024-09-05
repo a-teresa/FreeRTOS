@@ -1,0 +1,10 @@
+10:52:57 **** Incremental Build of configuration Debug for project 29_Profiling ****
+make -j8 all 
+arm-none-eabi-size   29_Profiling.elf 
+   text	   data	    bss	    dec	    hex	filename
+  27096	    512	   2032	  29640	   73c8	29_Profiling.elf
+Finished building: default.size.stdout
+ 
+
+10:52:58 Build Finished. 0 errors, 0 warnings. (took 414ms)
+

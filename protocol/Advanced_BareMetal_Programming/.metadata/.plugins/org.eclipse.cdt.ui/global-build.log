@@ -1,0 +1,53 @@
+10:51:28 **** Build of configuration Debug for project 29_Profiling ****
+make -j8 all 
+arm-none-eabi-gcc -mcpu=cortex-m4 -g3 -c -x assembler-with-cpp -MMD -MP -MF"Startup/startup_stm32f411retx.d" -MT"Startup/startup_stm32f411retx.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Startup/startup_stm32f411retx.o" "../Startup/startup_stm32f411retx.s"
+arm-none-eabi-gcc "../Src/adc_dma.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F411RETx -DSTM32F411xE -c -I../Inc -I"C:/Users/Gaming Laptop RTX/Documents/Advanced_BareMetal_Programming/29_Profiling/chip_headers/CMSIS/Include" -I"C:/Users/Gaming Laptop RTX/Documents/Advanced_BareMetal_Programming/29_Profiling/chip_headers/CMSIS/Device/ST/STM32F4xx/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/adc_dma.d" -MT"Src/adc_dma.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/adc_dma.o"
+arm-none-eabi-gcc "../Src/dma.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F411RETx -DSTM32F411xE -c -I../Inc -I"C:/Users/Gaming Laptop RTX/Documents/Advanced_BareMetal_Programming/29_Profiling/chip_headers/CMSIS/Include" -I"C:/Users/Gaming Laptop RTX/Documents/Advanced_BareMetal_Programming/29_Profiling/chip_headers/CMSIS/Device/ST/STM32F4xx/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/dma.d" -MT"Src/dma.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/dma.o"
+arm-none-eabi-gcc "../Src/i2c_dma.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F411RETx -DSTM32F411xE -c -I../Inc -I"C:/Users/Gaming Laptop RTX/Documents/Advanced_BareMetal_Programming/29_Profiling/chip_headers/CMSIS/Include" -I"C:/Users/Gaming Laptop RTX/Documents/Advanced_BareMetal_Programming/29_Profiling/chip_headers/CMSIS/Device/ST/STM32F4xx/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/i2c_dma.d" -MT"Src/i2c_dma.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/i2c_dma.o"
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F411RETx -DSTM32F411xE -c -I../Inc -I"C:/Users/Gaming Laptop RTX/Documents/Advanced_BareMetal_Programming/29_Profiling/chip_headers/CMSIS/Include" -I"C:/Users/Gaming Laptop RTX/Documents/Advanced_BareMetal_Programming/29_Profiling/chip_headers/CMSIS/Device/ST/STM32F4xx/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+arm-none-eabi-gcc "../Src/mpu9250.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F411RETx -DSTM32F411xE -c -I../Inc -I"C:/Users/Gaming Laptop RTX/Documents/Advanced_BareMetal_Programming/29_Profiling/chip_headers/CMSIS/Include" -I"C:/Users/Gaming Laptop RTX/Documents/Advanced_BareMetal_Programming/29_Profiling/chip_headers/CMSIS/Device/ST/STM32F4xx/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/mpu9250.d" -MT"Src/mpu9250.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/mpu9250.o"
+arm-none-eabi-gcc "../Src/spi_dma.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F411RETx -DSTM32F411xE -c -I../Inc -I"C:/Users/Gaming Laptop RTX/Documents/Advanced_BareMetal_Programming/29_Profiling/chip_headers/CMSIS/Include" -I"C:/Users/Gaming Laptop RTX/Documents/Advanced_BareMetal_Programming/29_Profiling/chip_headers/CMSIS/Device/ST/STM32F4xx/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/spi_dma.d" -MT"Src/spi_dma.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/spi_dma.o"
+arm-none-eabi-gcc "../Src/syscalls.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F411RETx -DSTM32F411xE -c -I../Inc -I"C:/Users/Gaming Laptop RTX/Documents/Advanced_BareMetal_Programming/29_Profiling/chip_headers/CMSIS/Include" -I"C:/Users/Gaming Laptop RTX/Documents/Advanced_BareMetal_Programming/29_Profiling/chip_headers/CMSIS/Device/ST/STM32F4xx/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/syscalls.d" -MT"Src/syscalls.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/syscalls.o"
+arm-none-eabi-gcc "../Src/sysmem.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F411RETx -DSTM32F411xE -c -I../Inc -I"C:/Users/Gaming Laptop RTX/Documents/Advanced_BareMetal_Programming/29_Profiling/chip_headers/CMSIS/Include" -I"C:/Users/Gaming Laptop RTX/Documents/Advanced_BareMetal_Programming/29_Profiling/chip_headers/CMSIS/Device/ST/STM32F4xx/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/sysmem.d" -MT"Src/sysmem.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/sysmem.o"
+../Src/main.c: In function 'brute_force_learning':
+../Src/main.c:77:22: warning: variable 'error' set but not used [-Wunused-but-set-variable]
+   77 |    double prediction,error;
+      |                      ^~~~~
+arm-none-eabi-gcc "../Src/systick.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F411RETx -DSTM32F411xE -c -I../Inc -I"C:/Users/Gaming Laptop RTX/Documents/Advanced_BareMetal_Programming/29_Profiling/chip_headers/CMSIS/Include" -I"C:/Users/Gaming Laptop RTX/Documents/Advanced_BareMetal_Programming/29_Profiling/chip_headers/CMSIS/Device/ST/STM32F4xx/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/systick.d" -MT"Src/systick.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/systick.o"
+arm-none-eabi-gcc "../Src/tim.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F411RETx -DSTM32F411xE -c -I../Inc -I"C:/Users/Gaming Laptop RTX/Documents/Advanced_BareMetal_Programming/29_Profiling/chip_headers/CMSIS/Include" -I"C:/Users/Gaming Laptop RTX/Documents/Advanced_BareMetal_Programming/29_Profiling/chip_headers/CMSIS/Device/ST/STM32F4xx/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/tim.d" -MT"Src/tim.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/tim.o"
+arm-none-eabi-gcc "../Src/uart.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F411RETx -DSTM32F411xE -c -I../Inc -I"C:/Users/Gaming Laptop RTX/Documents/Advanced_BareMetal_Programming/29_Profiling/chip_headers/CMSIS/Include" -I"C:/Users/Gaming Laptop RTX/Documents/Advanced_BareMetal_Programming/29_Profiling/chip_headers/CMSIS/Device/ST/STM32F4xx/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/uart.d" -MT"Src/uart.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/uart.o"
+arm-none-eabi-gcc -o "29_Profiling.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Gaming Laptop RTX\Documents\Advanced_BareMetal_Programming\29_Profiling\STM32F411RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="29_Profiling.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -u _scanf_float -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 29_Profiling.elf
+ 
+arm-none-eabi-size   29_Profiling.elf 
+arm-none-eabi-objdump -h -S  29_Profiling.elf  > "29_Profiling.list"
+arm-none-eabi-objcopy  -O binary  29_Profiling.elf  "29_Profiling.bin"
+   text	   data	    bss	    dec	    hex	filename
+  27096	    512	   2032	  29640	   73c8	29_Profiling.elf
+Finished building: default.size.stdout
+ 
+Finished building: 29_Profiling.bin
+ 
+Finished building: 29_Profiling.list
+ 
+10:51:34 **** Incremental Build of configuration Debug for project 29_Profiling ****
+make -j8 all 
+arm-none-eabi-size   29_Profiling.elf 
+   text	   data	    bss	    dec	    hex	filename
+  27096	    512	   2032	  29640	   73c8	29_Profiling.elf
+Finished building: default.size.stdout
+ 
+10:51:42 **** Incremental Build of configuration Debug for project 29_Profiling ****
+make -j8 all 
+arm-none-eabi-size   29_Profiling.elf 
+   text	   data	    bss	    dec	    hex	filename
+  27096	    512	   2032	  29640	   73c8	29_Profiling.elf
+Finished building: default.size.stdout
+ 
+10:52:57 **** Incremental Build of configuration Debug for project 29_Profiling ****
+make -j8 all 
+arm-none-eabi-size   29_Profiling.elf 
+   text	   data	    bss	    dec	    hex	filename
+  27096	    512	   2032	  29640	   73c8	29_Profiling.elf
+Finished building: default.size.stdout
+ 

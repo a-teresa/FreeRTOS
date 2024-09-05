@@ -1,0 +1,10 @@
+core_cm4.h:1688:22:__NVIC_EnableIRQ	16	static
+uart_dma.c:49:6:uart2_rx_tx_init	8	static
+uart_dma.c:103:6:dma1_init	8	static
+uart_dma.c:113:6:dma1_stream5_uart_rx_config	8	static
+uart_dma.c:158:6:dma1_stream6_uart_tx_config	16	static
+uart_dma.c:198:17:compute_uart_bd	16	static
+uart_dma.c:204:13:uart_set_baudrate	16	static
+uart_dma.c:210:6:DMA1_Stream6_IRQHandler	4	static
+uart_dma.c:222:6:DMA1_Stream5_IRQHandler	4	static
+uart_dma.c:237:6:USART2_IRQHandler	4	static

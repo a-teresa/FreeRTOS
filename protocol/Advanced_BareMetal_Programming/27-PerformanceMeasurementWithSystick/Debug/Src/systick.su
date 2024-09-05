@@ -1,0 +1,2 @@
+systick.c:14:6:systick_5kHz_interrupt	4	static
+systick.c:28:6:systick_counter_init	4	static
